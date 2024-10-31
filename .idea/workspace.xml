@@ -4,55 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1b8cf9e-3ed5-4cd5-9085-ea84011f6334" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/RowdyGuard/app/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/proguard-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/RowdyGuard/app/proguard-rules.pro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/androidTest/java/edu/utsa/cs3443/rowdyguard/ExampleInstrumentedTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RowdyGuard/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/java/edu/utsa/cs3443/rowdyguard/MainActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/java/edu/utsa/cs3443/rowdyguard/ui/gallery/GalleryFragment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/java/edu/utsa/cs3443/rowdyguard/ui/gallery/GalleryViewModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/java/edu/utsa/cs3443/rowdyguard/ui/home/HomeFragment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/java/edu/utsa/cs3443/rowdyguard/ui/home/HomeViewModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/java/edu/utsa/cs3443/rowdyguard/ui/slideshow/SlideshowFragment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/java/edu/utsa/cs3443/rowdyguard/ui/slideshow/SlideshowViewModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/drawable/ic_launcher_foreground.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/drawable/ic_launcher_foreground.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/drawable/ic_menu_camera.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/drawable/ic_menu_gallery.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/drawable/ic_menu_slideshow.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/drawable/side_nav_bar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/layout/app_bar_main.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/layout/content_main.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/layout/fragment_gallery.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/layout/fragment_home.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/layout/fragment_slideshow.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/layout/nav_header_main.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/menu/activity_main_drawer.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/menu/main.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/mipmap-anydpi/ic_launcher.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/mipmap-anydpi/ic_launcher.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/mipmap-anydpi/ic_launcher_round.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/mipmap-anydpi/ic_launcher_round.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/navigation/mobile_navigation.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/values-land/dimens.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/values-night/themes.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/values-w1240dp/dimens.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/values-w600dp/dimens.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/values/dimens.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/values/themes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/xml/backup_rules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/xml/backup_rules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/xml/data_extraction_rules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/test/java/edu/utsa/cs3443/rowdyguard/ExampleUnitTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/RowdyGuard/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/RowdyGuard/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/RowdyGuard/gradle/libs.versions.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/RowdyGuard/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/RowdyGuard/gradlew" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/RowdyGuard/local.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/RowdyGuard/settings.gradle.kts" afterDir="false" />
-    </list>
+    <list default="true" id="c1b8cf9e-3ed5-4cd5-9085-ea84011f6334" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,22 +16,23 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "HullaBrian"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;HullaBrian&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
-    "url": "https://github.com/snooziepoozie/RowdyGuard",
-    "accountId": "92079bc3-6ab4-4e67-bff9-89671ed79b6d"
+    "url": "https://github.com/snooziepoozie/RowdyGuard.git",
+    "accountId": "c77b53c5-51ae-4431-9a64-0112653f0fae"
   }
 }]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2o7FMa4RvfgpXFVsiBOadS2bKaN" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -91,7 +44,8 @@
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "mainold",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/RowdyGuard"
   }
