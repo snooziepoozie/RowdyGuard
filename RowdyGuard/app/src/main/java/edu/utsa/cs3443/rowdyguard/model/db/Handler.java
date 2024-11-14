@@ -1,28 +1,25 @@
 package edu.utsa.cs3443.rowdyguard.model.db;
 
+import static edu.utsa.cs3443.rowdyguard.model.db.Encryption.deriveKeyFromPassword;
 import static edu.utsa.cs3443.rowdyguard.model.db.Encryption.encryptAndWriteToFile;
+import static edu.utsa.cs3443.rowdyguard.model.db.Encryption.generateSalt;
 
 import android.content.Context;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
-
-import javax.crypto.SecretKey;
 
 import edu.utsa.cs3443.rowdyguard.model.Vault;
-import edu.utsa.cs3443.rowdyguard.model.Password;
 
 public class Handler {
     private Context context;
-    private ArrayList<Vault> vaults;
-    private String key;
+    public ArrayList<Vault> vaults;
+    private String password;
 
-    public Handler(String key, Context context) {
+    public Handler(String password, Context context) {
         this.context = context;
         this.vaults = new ArrayList<>();
-        this.key = key;
+        this.password = password;
 
         this.loadVaults();
     }
@@ -45,8 +42,8 @@ public class Handler {
         }
         return out;
     }
-    public Vault addVault(String vaultFile) {
-        encryptAndWriteToFile("", this.key, vaultFile, this.context);
-        return new Vault("");
+    public void addVault(String vaultFile) throws Exception {
+        encryptAndWriteToFile("eee", deriveKeyFromPassword(this.password, generateSalt()), vaultFile, this.context);
+        this.vaults.add(new Vault(vaultFile));
     }
 }

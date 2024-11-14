@@ -1,7 +1,8 @@
 package edu.utsa.cs3443.rowdyguard.controllers;
 
-import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -10,16 +11,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import java.util.ArrayList;
-
-import javax.crypto.SecretKey;
-
 import edu.utsa.cs3443.rowdyguard.R;
 import edu.utsa.cs3443.rowdyguard.model.db.Handler;
 
 
 public class MainActivity extends AppCompatActivity {
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
@@ -29,13 +25,28 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        Button btn = findViewById(R.id.addButton);
+        TextView txt = findViewById(R.id.multiLine);
+        final int[] i = {0};
 
-        ArrayList<TextView> textViews = new ArrayList<>();
         Handler handler = new Handler("P@ssw0rd", this);
-        for (String v : handler.getVaultNames()) {
-            TextView t = new TextView(this);
-            t.setText(v);
-            textViews.add(t);
-        }
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    handler.addVault("test" + i[0]);
+                    i[0]++;
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+                StringBuilder o = new StringBuilder();
+                for (String vault : handler.getVaultNames()) {
+                    System.out.println(vault);
+                    o.append(vault).append("\n");
+                }
+                txt.setText(o);
+            }
+        });
     }
 }
