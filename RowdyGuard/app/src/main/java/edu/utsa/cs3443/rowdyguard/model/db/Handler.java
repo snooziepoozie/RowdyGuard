@@ -2,8 +2,10 @@ package edu.utsa.cs3443.rowdyguard.model.db;
 
 import android.content.Context;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import edu.utsa.cs3443.rowdyguard.model.Vault;
 import edu.utsa.cs3443.rowdyguard.model.Password;
@@ -19,18 +21,17 @@ public class Handler {
         this.loadVaults();
     }
     private void loadVaults() {
-        String [] list;
-        try {
-            list = this.context.getAssets().list("");
-            if (list.length > 0) {
-                for (String file : list) {
-                    System.out.println("Found vault file: " + file);
-                    this.vaults.add(new Vault(file));
+        File directory = context.getFilesDir();
+        File[] files = directory.listFiles();
+
+        // Check if the directory is empty
+        if (files != null) {
+            for (File file : files) {
+                // Add files with the specified extension (e.g., ".enc") to the list
+                if (file.isFile() && file.getName().endsWith(".vault")) {
+                    encryptedFiles.add(file);
                 }
             }
-        } catch (IOException e) {
-            System.out.println("Handler Error: Could not read vaults correctly!");
-            return;
         }
     }
     public Vault addVault(String vaultFile) {
