@@ -18,7 +18,6 @@ public class Encryption {
     static String readAndDecryptFile(String password, String filename, Context context) throws Exception {
         byte[] fileContent = Files.readAllBytes(Paths.get(String.valueOf(context.getFilesDir()), filename));
 
-        // Extract salt, IV, and encrypted data
         byte[] salt = new byte[16];
         System.arraycopy(fileContent, 0, salt, 0, 16);
         byte[] iv = new byte[12];

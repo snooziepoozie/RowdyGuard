@@ -3,7 +3,7 @@ package edu.utsa.cs3443.rowdyguard.controllers;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +16,8 @@ import edu.utsa.cs3443.rowdyguard.model.db.Handler;
 
 
 public class MainActivity extends AppCompatActivity {
+    private Handler handler;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
@@ -26,27 +28,44 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         Button btn = findViewById(R.id.addButton);
-        TextView txt = findViewById(R.id.multiLine);
+        this.handler = new Handler("P@ssw0rd", this);
         final int[] i = {0};
 
-        Handler handler = new Handler("P@ssw0rd", this);
+        LinearLayout layout = findViewById(R.id.linearLayout);
+
+        for (String vault : handler.getVaultNames()) {
+            addVaultButton(layout, vault);
+            i[0]++;
+        }
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    handler.addVault("test" + i[0]);
+                    addVaultButton(layout, "test" + i[0] + ".vault");
+                    handler.addVault("test" + i[0] + ".vault");
                     i[0]++;
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
-                StringBuilder o = new StringBuilder();
-                for (String vault : handler.getVaultNames()) {
-                    System.out.println(vault);
-                    o.append(vault).append("\n");
-                }
-                txt.setText(o);
             }
         });
+    }
+    private void addVaultButton(LinearLayout layout, String text) {
+        Button button = new Button(this);
+        button.setText(text);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+
+        layout.addView(button);
     }
 }

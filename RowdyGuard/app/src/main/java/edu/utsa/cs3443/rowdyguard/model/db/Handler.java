@@ -5,6 +5,7 @@ import static edu.utsa.cs3443.rowdyguard.model.db.Encryption.encryptAndWriteToFi
 import static edu.utsa.cs3443.rowdyguard.model.db.Encryption.generateSalt;
 
 import android.content.Context;
+import android.widget.Button;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ public class Handler {
         this.loadVaults();
     }
     private void loadVaults() {
-        File directory = context.getFilesDir();
+        File directory = this.context.getFilesDir();
         File[] files = directory.listFiles();
 
         if (files != null) {
@@ -34,6 +35,13 @@ public class Handler {
                 }
             }
         }
+    }
+    public Vault findVaultByName(String search) {
+        for (Vault v : this.vaults) {
+            if (v.getName().equals(search))
+                return v;
+        }
+        return null;
     }
     public ArrayList<String> getVaultNames() {
         ArrayList<String> out = new ArrayList<>();
