@@ -10,4 +10,7 @@ public class Vault {
         this.vaultFile = vaultFile;
         this.passwords = new ArrayList<Password>();
     }
+    public String getName() {
+        return this.vaultFile;
+    }
 }

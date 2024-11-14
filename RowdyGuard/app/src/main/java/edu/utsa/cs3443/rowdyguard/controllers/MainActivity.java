@@ -10,6 +10,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
 import javax.crypto.SecretKey;
 
 import edu.utsa.cs3443.rowdyguard.R;
@@ -28,7 +30,12 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        ArrayList<TextView> textViews = new ArrayList<>();
         Handler handler = new Handler("P@ssw0rd", this);
-        handler.encryptAndWriteToFile("data", "P@ssw0rd", "vault1")
+        for (String v : handler.getVaultNames()) {
+            TextView t = new TextView(this);
+            t.setText(v);
+            textViews.add(t);
+        }
     }
 }

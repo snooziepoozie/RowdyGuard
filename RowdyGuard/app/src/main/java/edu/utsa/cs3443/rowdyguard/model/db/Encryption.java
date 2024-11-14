@@ -15,7 +15,7 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.GCMParameterSpec;
 
 public class Encryption {
-    public String readAndDecryptFile(String password, String filename, Context context) throws Exception {
+    static String readAndDecryptFile(String password, String filename, Context context) throws Exception {
         byte[] fileContent = Files.readAllBytes(Paths.get(String.valueOf(context.getFilesDir()), filename));
 
         // Extract salt, IV, and encrypted data
@@ -35,7 +35,7 @@ public class Encryption {
         byte[] decryptedData = cipher.doFinal(encryptedData);
         return new String(decryptedData);
     }
-    public void encryptAndWriteToFile(String data, SecretKey key, String filename, Context context) throws Exception {
+    static void encryptAndWriteToFile(String data, SecretKey key, String filename, Context context) throws Exception {
         File file = new File(context.getFilesDir(), filename);
 
         Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
@@ -52,26 +52,26 @@ public class Encryption {
             fos.write(encryptedData);   // Save the encrypted data
         }
     }
-    public SecretKey deriveKeyFromPassword(String password, byte[] salt) throws Exception {
+    static SecretKey deriveKeyFromPassword(String password, byte[] salt) throws Exception {
         PBEKeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 10000, 256);
         SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
         return factory.generateSecret(spec);
     }
 
-    public byte[] generateSalt() {
+    static byte[] generateSalt() {
         SecureRandom random = new SecureRandom();
         byte[] salt = new byte[16];
         random.nextBytes(salt);
         return salt;
     }
 
-    public byte[] encryptData(String plainText, SecretKey key) throws Exception {
+    static byte[] encryptData(String plainText, SecretKey key) throws Exception {
         Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
         cipher.init(Cipher.ENCRYPT_MODE, key, new GCMParameterSpec(128, new byte[12]));
         return cipher.doFinal(plainText.getBytes());
     }
 
-    public String decryptData(byte[] cipherText, SecretKey key) throws Exception {
+    static String decryptData(byte[] cipherText, SecretKey key) throws Exception {
         Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
         cipher.init(Cipher.DECRYPT_MODE, key, new GCMParameterSpec(128, new byte[12]));
         return new String(cipher.doFinal(cipherText));
