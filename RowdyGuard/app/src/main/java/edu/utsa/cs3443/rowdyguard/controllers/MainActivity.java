@@ -11,8 +11,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import java.io.IOException;
-
 import edu.utsa.cs3443.rowdyguard.R;
 import edu.utsa.cs3443.rowdyguard.model.db.Handler;
 
@@ -30,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         Button btn = findViewById(R.id.addButton);
+        Button btn2 = findViewById(R.id.removeButton);
         try {
             this.handler = new Handler("P@ssw0rd", this);
         } catch (Exception e) {
@@ -37,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         }
         final int[] i = {0};
 
-        LinearLayout layout = findViewById(R.id.linearLayout);
+        // LinearLayout layout = findViewById(R.id.linearLayout);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +47,19 @@ public class MainActivity extends AppCompatActivity {
                     throw new RuntimeException(e);
                 }
                 i[0]++;
+            }
+        });
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    handler.removePassword(handler.getPasswords().get(handler.getPasswords().size() - 1).getTitle());
+                } catch (java.lang.IndexOutOfBoundsException e) {
+                    System.out.println("Cannot find password to delete!");
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
     }

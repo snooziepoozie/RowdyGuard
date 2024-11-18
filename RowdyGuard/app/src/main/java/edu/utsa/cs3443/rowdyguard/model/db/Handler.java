@@ -1,19 +1,21 @@
 package edu.utsa.cs3443.rowdyguard.model.db;
 
+import static edu.utsa.cs3443.rowdyguard.model.db.Encryption.decryptData;
 import static edu.utsa.cs3443.rowdyguard.model.db.Encryption.deriveKeyFromPassword;
 import static edu.utsa.cs3443.rowdyguard.model.db.Encryption.encryptData;
-import static edu.utsa.cs3443.rowdyguard.model.db.Encryption.generateSalt;
 
 import android.content.Context;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 import javax.crypto.SecretKey;
@@ -28,7 +30,7 @@ public class Handler {
 
     public Handler(String password, Context context) throws Exception {
         this.context = context;
-        this.key = deriveKeyFromPassword(password, new byte[16]);
+        this.key = deriveKeyFromPassword(password, new byte[12]);
         this.passwords = new ArrayList<>();
         this.dbConnector = new File(
                 context.getFilesDir(),
@@ -36,23 +38,38 @@ public class Handler {
         );
 
         this.createDatabaseIfNotExists();
+
         this.loadDatabase();
     }
     private void createDatabaseIfNotExists() throws IOException {
         File file = new File(context.getFilesDir(), "database.db");
-        if (file.createNewFile())
+        if (file.createNewFile()) {
             System.out.println("Database didn't exist - created!");
-        else
+        } else {
             System.out.println("Database already exists!");
+        }
     }
-    private void loadDatabase() throws FileNotFoundException {
-        // TODO: decrypt the passwords...
+    private void loadDatabase() throws Exception {
         System.out.println("Loading database...");
         Scanner scanner = new Scanner(this.dbConnector);
         while (scanner.hasNextLine()) {
-            String[] arr = scanner.nextLine().split(",");
-            this.passwords.add(new Password(arr[0], arr[1], arr[2]));
-            System.out.println(arr[0] + "," + arr[1] + "," + arr[2]);
+            String[] arr = scanner.nextLine().split(",", 3);
+            try {
+                String[] parts = arr[2].replace("[", "").replace("]", "").trim().split(",\\s*");
+                List<Byte> byteList = new ArrayList<>();
+                for (String part : parts) {
+                    byteList.add(Byte.parseByte(part));
+                }
+                byte[] cipherText = new byte[byteList.size()];
+                for (int i = 0; i < byteList.size(); i++) {
+                    cipherText[i] = byteList.get(i);
+                }
+
+                this.passwords.add(new Password(arr[0], arr[1], decryptData(cipherText, this.key)));
+            } catch (javax.crypto.AEADBadTagException e) {
+                System.out.println("Failed to decrypt: " + arr[0]);
+            }
+            System.out.println(arr[0] + "," + arr[1] + "," + this.passwords.get(this.passwords.size() - 1).getPassword());
             System.out.println("Loaded password with title: " + arr[0]);
         }
         scanner.close();
@@ -73,6 +90,34 @@ public class Handler {
                 title + "," + username + "," + Arrays.toString(encryptData(password, this.key)) + "\n"
         );
         output.close();
+
         System.out.println("Wrote password with title \"" + title + "\"to database!");
+    }
+    public boolean removePassword(String title) throws Exception {
+        File tempFile = new File(context.getFilesDir(),"database.db.tmp");
+        tempFile.createNewFile();
+
+        BufferedReader reader = new BufferedReader(new FileReader(this.dbConnector));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+        String currentLine;
+
+        while((currentLine = reader.readLine()) != null) {
+            String trimmedLine = currentLine.trim();
+            if(trimmedLine.startsWith(title)) continue;
+            writer.write(currentLine + System.lineSeparator());
+        }
+        writer.close();
+        reader.close();
+
+        if (tempFile.renameTo(this.dbConnector)){
+            for (Password p: this.passwords) {
+                if (p.getTitle().equals(title)) {
+                    this.passwords.remove(p);
+                    System.out.println("Removed " + title + " from database!");
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
