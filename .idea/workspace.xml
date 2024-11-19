@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1b8cf9e-3ed5-4cd5-9085-ea84011f6334" name="Changes" comment="" />
+    <list default="true" id="c1b8cf9e-3ed5-4cd5-9085-ea84011f6334" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,7 +27,7 @@
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/snooziepoozie/RowdyGuard.git",
-    "accountId": "c77b53c5-51ae-4431-9a64-0112653f0fae"
+    "accountId": "1af55e82-50ed-47c5-9057-ab1a7c6c1b77"
   }
 }]]></component>
   <component name="ProjectColorInfo">{
@@ -47,7 +49,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/RowdyGuard"
+    "last_opened_file_path": "D:/dev/RowdyGuard/RowdyGuard"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
