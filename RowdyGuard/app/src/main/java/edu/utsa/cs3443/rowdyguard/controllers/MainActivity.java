@@ -2,6 +2,7 @@ package edu.utsa.cs3443.rowdyguard.controllers;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
