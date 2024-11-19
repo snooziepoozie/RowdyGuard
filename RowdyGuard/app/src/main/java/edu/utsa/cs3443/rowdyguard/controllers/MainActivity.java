@@ -1,6 +1,7 @@
 package edu.utsa.cs3443.rowdyguard.controllers;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,12 +10,10 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import edu.utsa.cs3443.rowdyguard.R;
-import edu.utsa.cs3443.rowdyguard.model.db.Handler;
 
 
 public class MainActivity extends AppCompatActivity {
-    private Handler handler;
-
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
@@ -59,22 +58,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        MainController controller = new MainController(this);
     }
-//    private void addVaultButton(LinearLayout layout, String text) {
-//        Button button = new Button(this);
-//        button.setText(text);
-//
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                try {
-//
-//                } catch (Exception e) {
-//                    throw new RuntimeException(e);
-//                }
-//            }
-//        });
-//
-//        layout.addView(button);
-//    }
 }
