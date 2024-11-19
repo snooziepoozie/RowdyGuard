@@ -120,4 +120,33 @@ public class Handler {
         }
         return false;
     }
+    public boolean editPassword(String oldTitle, String newTitle, String newUserName, String newPassword) throws Exception {
+        /*
+        Edit a given password. If you don't want to edit an attribute, pass an empty string
+         */
+        for (Password p : this.passwords) {
+            if (p.getTitle().equals(oldTitle)) {
+                if (!newTitle.isEmpty())
+                    p.setTitle(newTitle);
+                if (!newUserName.isEmpty())
+                    p.setUsername(newUserName);
+                if (!newPassword.isEmpty())
+                    p.setPassword(newPassword);
+                this.removePassword(oldTitle);
+                this.addPassword(p.getTitle(), p.getUsername(), p.getPassword());
+                return true;
+            }
+        }
+        return false;
+    }
+    public void changeVaultPassword(String newPassword) throws Exception {
+        this.key = deriveKeyFromPassword(newPassword, new byte[12]);
+        ArrayList<Password> passwordBackup = new ArrayList<>(this.getPasswords());
+        for (Password p : this.passwords) {
+            this.removePassword(p.getTitle());
+        }
+        for (Password p : passwordBackup) {
+            this.addPassword(p.getTitle(), p.getUsername(), p.getPassword());
+        }
+    }
 }
