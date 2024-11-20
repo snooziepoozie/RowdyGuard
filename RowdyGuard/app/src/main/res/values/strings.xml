@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">RowdyGuard</string>
-    <string name="login">Login</string>
-    <string name="password">Password</string>
+    <string name="password_title">PasswordTitle</string>
+    <string name="password_username">PasswordUsername</string>
+    <string name="password_password">PasswordPassword</string>
+    <string name="password_url">PasswordURL</string>
+    <string name="vault_view_title">These Passwords</string>
+    <string name="no_password_error">No Passwords Detected</string>
 </resources>

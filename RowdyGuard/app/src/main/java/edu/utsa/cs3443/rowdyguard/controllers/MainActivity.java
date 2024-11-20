@@ -3,6 +3,7 @@ package edu.utsa.cs3443.rowdyguard.controllers;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,10 +12,12 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import edu.utsa.cs3443.rowdyguard.R;
+import edu.utsa.cs3443.rowdyguard.model.db.Handler;
 
 
 public class MainActivity extends AppCompatActivity {
-    @Override
+    private Handler handler;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
@@ -59,6 +62,5 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        MainController controller = new MainController(this);
     }
 }
