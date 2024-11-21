@@ -4,8 +4,8 @@ public class PasswordViewController {
 
     private final PasswordViewActivity passwordViewActivity;
 
-    public PasswordViewController(PasswordViewActivity passwordViewActivity, PasswordViewActivity passwordViewActivity1) {
+    public PasswordViewController(PasswordViewActivity myPasswordViewActivity) {
 
-        this.passwordViewActivity = passwordViewActivity1;
+        this.passwordViewActivity = myPasswordViewActivity;
     }
 }
