@@ -14,9 +14,11 @@ public class Password {
     public String getTitle() {
         return this.title;
     }
+
     public String getUsername() {
         return this.username;
     }
+
     public String getPassword() {
         return this.password;
     }
@@ -25,8 +27,6 @@ public class Password {
     public void setTitle(String title) {
         this.title = title;
     }
-
-
     public void setUsername(String username) {
         this.username = username;
     }
