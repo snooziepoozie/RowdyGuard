@@ -1,5 +1,16 @@
 <resources>
     <string name="app_name">RowdyGuard</string>
+    <string name="password_title">PasswordTitle</string>
+    <string name="password_username">PasswordUsername</string>
+    <string name="password_password">PasswordPassword</string>
+    <string name="password_url">PasswordURL</string>
+    <string name="no_password_error">No Passwords Detected</string>
+
+
+    <string name="password_enter_new_user">Enter a new username:</string>
+    <string name="password_enter_new_pass">Enter a new password:</string>
+    <string name="password_enter_new_url">Enter a new URL:</string>
+    <string name="password_submit_changes">Submit Changes</string>
     <string name="login">Login</string>
     <string name="password">Password</string>
 </resources>
