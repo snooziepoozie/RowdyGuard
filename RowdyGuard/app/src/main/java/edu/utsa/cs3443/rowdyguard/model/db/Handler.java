@@ -1,57 +1,152 @@
 package edu.utsa.cs3443.rowdyguard.model.db;
 
+import static edu.utsa.cs3443.rowdyguard.model.db.Encryption.decryptData;
 import static edu.utsa.cs3443.rowdyguard.model.db.Encryption.deriveKeyFromPassword;
-import static edu.utsa.cs3443.rowdyguard.model.db.Encryption.encryptAndWriteToFile;
-import static edu.utsa.cs3443.rowdyguard.model.db.Encryption.generateSalt;
+import static edu.utsa.cs3443.rowdyguard.model.db.Encryption.encryptData;
 
 import android.content.Context;
-import android.widget.Button;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
 
-import edu.utsa.cs3443.rowdyguard.model.Vault;
+import javax.crypto.SecretKey;
+
+import edu.utsa.cs3443.rowdyguard.model.Password;
 
 public class Handler {
     private Context context;
-    public ArrayList<Vault> vaults;
-    private String password;
+    private File dbConnector;
+    private SecretKey key;
+    private ArrayList<Password> passwords;
 
-    public Handler(String password, Context context) {
+    public Handler(String password, Context context) throws Exception {
         this.context = context;
-        this.vaults = new ArrayList<>();
-        this.password = password;
+        this.key = deriveKeyFromPassword(password, new byte[12]);
+        this.passwords = new ArrayList<>();
+        this.dbConnector = new File(
+                context.getFilesDir(),
+                "database.db"
+        );
 
-        this.loadVaults();
+        this.createDatabaseIfNotExists();
+
+        this.loadDatabase();
     }
-    private void loadVaults() {
-        File directory = this.context.getFilesDir();
-        File[] files = directory.listFiles();
+    private void createDatabaseIfNotExists() throws IOException {
+        File file = new File(context.getFilesDir(), "database.db");
+        if (file.createNewFile()) {
+            System.out.println("Database didn't exist - created!");
+        } else {
+            System.out.println("Database already exists!");
+        }
+    }
+    private void loadDatabase() throws Exception {
+        System.out.println("Loading database...");
+        Scanner scanner = new Scanner(this.dbConnector);
+        while (scanner.hasNextLine()) {
+            String[] arr = scanner.nextLine().split(",", 3);
+            try {
+                String[] parts = arr[2].replace("[", "").replace("]", "").trim().split(",\\s*");
+                List<Byte> byteList = new ArrayList<>();
+                for (String part : parts) {
+                    byteList.add(Byte.parseByte(part));
+                }
+                byte[] cipherText = new byte[byteList.size()];
+                for (int i = 0; i < byteList.size(); i++) {
+                    cipherText[i] = byteList.get(i);
+                }
 
-        if (files != null) {
-            for (File file : files) {
-                if (file.isFile() && file.getName().endsWith(".vault")) {
-                    this.vaults.add(new Vault(file.getName()));
+                this.passwords.add(new Password(arr[0], arr[1], decryptData(cipherText, this.key)));
+            } catch (javax.crypto.AEADBadTagException e) {
+                System.out.println("Failed to decrypt: " + arr[0]);
+            }
+            System.out.println(arr[0] + "," + arr[1] + "," + this.passwords.get(this.passwords.size() - 1).getPassword());
+            System.out.println("Loaded password with title: " + arr[0]);
+        }
+        scanner.close();
+        System.out.println("Finished loading database!");
+    }
+    public ArrayList<Password> getPasswords() {
+        return this.passwords;
+    }
+    public void addPassword(String title, String username, String password) throws Exception {
+        this.passwords.add(new Password(title, username, password));
+        Writer output = new BufferedWriter(
+                new FileWriter(
+                        this.dbConnector,
+                        true
+                )
+        );
+        output.append(
+                title + "," + username + "," + Arrays.toString(encryptData(password, this.key)) + "\n"
+        );
+        output.close();
+
+        System.out.println("Wrote password with title \"" + title + "\"to database!");
+    }
+    public boolean removePassword(String title) throws Exception {
+        File tempFile = new File(context.getFilesDir(),"database.db.tmp");
+        tempFile.createNewFile();
+
+        BufferedReader reader = new BufferedReader(new FileReader(this.dbConnector));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+        String currentLine;
+
+        while((currentLine = reader.readLine()) != null) {
+            String trimmedLine = currentLine.trim();
+            if(trimmedLine.startsWith(title)) continue;
+            writer.write(currentLine + System.lineSeparator());
+        }
+        writer.close();
+        reader.close();
+
+        if (tempFile.renameTo(this.dbConnector)){
+            for (Password p: this.passwords) {
+                if (p.getTitle().equals(title)) {
+                    this.passwords.remove(p);
+                    System.out.println("Removed " + title + " from database!");
+                    return true;
                 }
             }
         }
+        return false;
     }
-    public Vault findVaultByName(String search) {
-        for (Vault v : this.vaults) {
-            if (v.getName().equals(search))
-                return v;
+    public boolean editPassword(String oldTitle, String newTitle, String newUserName, String newPassword) throws Exception {
+        /*
+        Edit a given password. If you don't want to edit an attribute, pass an empty string
+         */
+        for (Password p : this.passwords) {
+            if (p.getTitle().equals(oldTitle)) {
+                if (!newTitle.isEmpty())
+                    p.setTitle(newTitle);
+                if (!newUserName.isEmpty())
+                    p.setUsername(newUserName);
+                if (!newPassword.isEmpty())
+                    p.setPassword(newPassword);
+                this.removePassword(oldTitle);
+                this.addPassword(p.getTitle(), p.getUsername(), p.getPassword());
+                return true;
+            }
         }
-        return null;
+        return false;
     }
-    public ArrayList<String> getVaultNames() {
-        ArrayList<String> out = new ArrayList<>();
-        for (Vault v : this.vaults) {
-            out.add(v.getName());
+    public void changeVaultPassword(String newPassword) throws Exception {
+        this.key = deriveKeyFromPassword(newPassword, new byte[12]);
+        ArrayList<Password> passwordBackup = new ArrayList<>(this.getPasswords());
+        for (Password p : this.passwords) {
+            this.removePassword(p.getTitle());
         }
-        return out;
-    }
-    public void addVault(String vaultFile) throws Exception {
-        encryptAndWriteToFile("eee", deriveKeyFromPassword(this.password, generateSalt()), vaultFile, this.context);
-        this.vaults.add(new Vault(vaultFile));
+        for (Password p : passwordBackup) {
+            this.addPassword(p.getTitle(), p.getUsername(), p.getPassword());
+        }
     }
 }

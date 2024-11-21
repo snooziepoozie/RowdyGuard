@@ -28,44 +28,56 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         Button btn = findViewById(R.id.addButton);
-        this.handler = new Handler("P@ssw0rd", this);
+        Button btn2 = findViewById(R.id.removeButton);
+        try {
+            this.handler = new Handler("P@ssw0rd", this);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         final int[] i = {0};
 
-        LinearLayout layout = findViewById(R.id.linearLayout);
-
-        for (String vault : handler.getVaultNames()) {
-            addVaultButton(layout, vault);
-            i[0]++;
-        }
+        // LinearLayout layout = findViewById(R.id.linearLayout);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    addVaultButton(layout, "test" + i[0] + ".vault");
-                    handler.addVault("test" + i[0] + ".vault");
-                    i[0]++;
+                    handler.addPassword("Password" + i[0], "username", "P@ssw0rd");
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
+                i[0]++;
             }
         });
-    }
-    private void addVaultButton(LinearLayout layout, String text) {
-        Button button = new Button(this);
-        button.setText(text);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-
+                    handler.removePassword(handler.getPasswords().get(handler.getPasswords().size() - 1).getTitle());
+                } catch (java.lang.IndexOutOfBoundsException e) {
+                    System.out.println("Cannot find password to delete!");
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
             }
         });
-
-        layout.addView(button);
     }
+//    private void addVaultButton(LinearLayout layout, String text) {
+//        Button button = new Button(this);
+//        button.setText(text);
+//
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                try {
+//
+//                } catch (Exception e) {
+//                    throw new RuntimeException(e);
+//                }
+//            }
+//        });
+//
+//        layout.addView(button);
+//    }
 }
