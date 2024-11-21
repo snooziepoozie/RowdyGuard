@@ -1,74 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/settings_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".controllers.MainActivity">
+    tools:context=".controllers.SettingsController">
 
-    <!-- Title -->
+    <!-- Header -->
 
-    <!-- Change Password Button -->
+    <!-- Dark Mode Toggle -->
 
-    <!-- Theme Toggle Button -->
+    <!-- Password Edit Section -->
 
-    <TextView
-        android:id="@+id/settingsTitle"
-        android:layout_width="420dp"
-        android:layout_height="100dp"
-        android:background="@color/teal_700"
-        android:padding="10dp"
-        android:text="Settings"
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="24sp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header"
+        android:layout_width="396dp"
+        android:layout_height="74dp"
+        android:background="@drawable/background"
+        android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0">
 
-    <Button
-        android:id="@+id/changePasswordButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Change Password"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/settingsTitle"
-        app:layout_constraintVertical_bias="0.0" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_title"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Logout Button -->
     <ToggleButton
-        android:id="@+id/themeToggleButton"
+        android:id="@+id/toggleButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textOff="Light Theme"
-        android:textOn="Dark Theme"
+        android:layout_marginTop="16dp"
+        android:textOff="Light Mode"
+        android:textOn="Dark Mode"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/changePasswordButton"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintVertical_bias="0.283" />
+
+    <EditText
+        android:id="@+id/editText_password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Enter new password"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toggleButton"
         app:layout_constraintVertical_bias="0.0" />
 
+    <!-- Logout TextView -->
+
     <Button
-        android:id="@+id/logoutButton"
+        android:id="@+id/button_change_password"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Logout"
+        android:layout_marginTop="8dp"
+        android:text="@string/changePassword_textbox"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/themeToggleButton"
+        app:layout_constraintTop_toBottomOf="@id/editText_password"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/text_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/logOut_button"
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintTop_toBottomOf="@id/button_change_password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

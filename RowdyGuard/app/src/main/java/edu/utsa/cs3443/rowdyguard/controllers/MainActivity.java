@@ -36,8 +36,6 @@ public class MainActivity extends AppCompatActivity {
         }
         final int[] i = {0};
 
-        // LinearLayout layout = findViewById(R.id.linearLayout);
-
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

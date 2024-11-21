@@ -11,14 +11,10 @@ public class Password {
         this.password = password;
     }
     //Gettor Methods
-    public String getTitle() {
-        return this.title;
-    }
-
+    public String getTitle() {return this.title;}
     public String getUsername() {
         return this.username;
     }
-
     public String getPassword() {
         return this.password;
     }

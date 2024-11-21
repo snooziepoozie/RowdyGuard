@@ -12,24 +12,14 @@ public class Settings {
     }
 
     //Getter methods
-    public String getPassword() {
-        return password;
-    }
-    public boolean isDarkThemeEnabled() {
-        return isDarkTheme;
-    }
+    public String getPassword() { return password;}
+    public boolean isDarkThemeEnabled() { return isDarkTheme; }
 
     // Setter methods
-    public void setPassword(String newPassword) {
-        this.password = newPassword;
-    }
-    public void toggleTheme() {
-        this.isDarkTheme = !this.isDarkTheme;
-    }
+    public void setPassword(String newPassword) { this.password = newPassword; }
+    public void toggleTheme() { this.isDarkTheme = !this.isDarkTheme; }
 
     //Logout function
-    public void logout() {
-        System.out.println("User logged out successfully.");
-    }
+    public void logout() { System.out.println("User logged out successfully."); }
 }
 
