@@ -11,21 +11,16 @@ import androidx.core.view.WindowInsetsCompat;
 import edu.utsa.cs3443.rowdyguard.R;
 
 
-public class PasswordChangeActivity extends AppCompatActivity {
+public class VaultOverview extends AppCompatActivity {
 
-    private PasswordChangeController passwordChangeController;
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.password_change_view);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        setContentView(R.layout.vault_overview);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.vaultOverview), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
-        passwordChangeController = new PasswordChangeController(this);
     }
 }
