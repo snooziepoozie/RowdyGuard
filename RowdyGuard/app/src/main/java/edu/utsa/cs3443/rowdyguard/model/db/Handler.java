@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Serializable;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,7 +23,7 @@ import javax.crypto.SecretKey;
 
 import edu.utsa.cs3443.rowdyguard.model.Password;
 
-public class Handler {
+public class Handler implements Serializable {
     private Context context;
     private File dbConnector;
     private SecretKey key;
@@ -41,6 +42,8 @@ public class Handler {
 
         this.loadDatabase();
     }
+
+
     private void createDatabaseIfNotExists() throws IOException {
         File file = new File(context.getFilesDir(), "database.db");
         if (file.createNewFile()) {

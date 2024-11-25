@@ -8,6 +8,7 @@
 
 
     <string name="password_enter_new_user">Enter a new username:</string>
+    <string name="password_enter_new_title">Enter a new title:</string>
     <string name="password_enter_new_pass">Enter a new password:</string>
     <string name="password_enter_new_url">Enter a new URL:</string>
     <string name="password_submit_changes">Submit Changes</string>

@@ -1,6 +1,8 @@
 package edu.utsa.cs3443.rowdyguard.model;
 
-public class Password {
+import java.io.Serializable;
+
+public class Password implements Serializable {
     private String title;
     private String username;
     private String password;
