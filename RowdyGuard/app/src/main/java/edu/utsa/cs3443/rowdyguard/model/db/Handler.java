@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Serializable;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,11 +23,11 @@ import javax.crypto.SecretKey;
 
 import edu.utsa.cs3443.rowdyguard.model.Password;
 
-public class Handler {
-    private Context context;
-    private File dbConnector;
-    private SecretKey key;
-    private ArrayList<Password> passwords;
+public class Handler implements Serializable {
+    private transient Context context;
+    private transient File dbConnector;
+    private transient SecretKey key;
+    private transient ArrayList<Password> passwords;
 
     public Handler(String password, Context context) throws Exception {
         this.context = context;
