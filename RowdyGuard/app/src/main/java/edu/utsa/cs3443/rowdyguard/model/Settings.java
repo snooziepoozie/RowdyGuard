@@ -1,5 +1,7 @@
 package edu.utsa.cs3443.rowdyguard.model;
 
+import android.widget.ToggleButton;
+
 public class Settings {
     //Variables
     private String password;
