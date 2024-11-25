@@ -11,21 +11,18 @@ import androidx.core.view.WindowInsetsCompat;
 import edu.utsa.cs3443.rowdyguard.R;
 
 
-public class PasswordViewActivity extends AppCompatActivity {
-
-    private PasswordViewController passwordViewController;
+public class PasswordView extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.password_view);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.PasswordList), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        passwordViewController = new PasswordViewController(this);
     }
 }
