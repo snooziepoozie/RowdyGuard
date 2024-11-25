@@ -56,8 +56,8 @@ public class PasswordChangeController {
 
     }
 
-    @Override
-    public void onClick(View v) {
+    //@Override
+    //public void onClick(View v) {
 
         // deprecated?
         /*
@@ -94,5 +94,5 @@ public class PasswordChangeController {
         */
 
 
-    }
+    //}
 }
