@@ -66,8 +66,8 @@ public class PasswordViewController {
 
     }
 
-    @Override
-    public void onClick(View v) {
+    //@Override
+    //public void onClick(View v) {
 
         //Deprecated?
         /* FIX ME
@@ -118,6 +118,5 @@ public class PasswordViewController {
         }
          */
 
-    }
 }
 
