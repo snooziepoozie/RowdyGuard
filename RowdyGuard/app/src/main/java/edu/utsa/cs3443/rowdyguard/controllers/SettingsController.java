@@ -9,15 +9,7 @@ import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.ToggleButton;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import edu.utsa.cs3443.rowdyguard.R;
 import edu.utsa.cs3443.rowdyguard.model.Settings;
