@@ -2,7 +2,6 @@ package edu.utsa.cs3443.rowdyguard.model.db;
 
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
-
 import java.security.SecureRandom;
 import javax.crypto.SecretKey;
 import javax.crypto.Cipher;
