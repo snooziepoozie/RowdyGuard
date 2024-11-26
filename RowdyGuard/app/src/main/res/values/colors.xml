@@ -8,4 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="password_bg">#eeb182</color>
+    <color name="passowrd_submit">#99C984</color>
+    <color name="password_bg">#eeb182</color>
 </resources>
