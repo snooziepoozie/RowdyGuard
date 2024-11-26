@@ -24,7 +24,14 @@
         <activity
             android:name=".controllers.VaultOverview"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light" >
+            android:theme="@style/Theme.AppCompat.Light"
+            android:label="VaultOverview" >
+        </activity>
+        <activity
+            android:name=".controllers.SettingsController"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light"
+            android:label="Settings" >
         </activity>
         <meta-data
             android:name="preloaded_fonts"
