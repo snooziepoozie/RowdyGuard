@@ -1,9 +1,12 @@
 package edu.utsa.cs3443.rowdyguard.controllers;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,7 +19,7 @@ import edu.utsa.cs3443.rowdyguard.model.db.Handler;
 
 
 public class MainActivity extends AppCompatActivity {
-    private Handler handler;
+    private Activity activity;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,36 +30,34 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        Button btn = findViewById(R.id.addButton);
-        Button btn2 = findViewById(R.id.removeButton);
-        try {
-            this.handler = new Handler("P@ssw0rd", this);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        final int[] i = {0};
 
-        btn.setOnClickListener(new View.OnClickListener() {
+        TextView editPassword = this.findViewById(R.id.editPassword);
+        Button login = this.findViewById(R.id.login);
+        this.activity = this;
+
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                String input = editPassword.getText().toString();
+
                 try {
-                    handler.addPassword("Password" + i[0], "username", "P@ssw0rd");
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
+                    System.out.println("Trying password " + input);
+                    Handler handler = new Handler(input, activity);
+                    // ArrayList<Password> passwords = handler.getPasswords();
+                    Toast.makeText(activity, "Login Successful!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(activity, VaultOverview.class);
+                    intent.putExtra("handler", handler);
+                    startActivity(intent);
                 }
-                i[0]++;
-            }
-        });
-
-        btn2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    handler.removePassword(handler.getPasswords().get(handler.getPasswords().size() - 1).getTitle());
-                } catch (java.lang.IndexOutOfBoundsException e) {
-                    System.out.println("Cannot find password to delete!");
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
+                catch (Exception e) {
+                    Toast.makeText(activity, "Login Failed", Toast.LENGTH_SHORT).show();
+                    System.out.println("Failed to load database!");
+                    try {
+                        throw e;
+                    } catch (Exception ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
             }
         });

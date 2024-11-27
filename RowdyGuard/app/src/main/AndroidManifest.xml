@@ -15,21 +15,39 @@
         <activity
             android:name=".controllers.MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.Light" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
         <activity
             android:name=".controllers.VaultOverview"
             android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light"
             android:label="VaultOverview" >
         </activity>
+        <activity
+            android:name=".controllers.SettingsController"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light"
+            android:label="Settings" >
+        </activity>
+        <activity
+            android:name=".controllers.PasswordChange"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light"
+            android:label="PasswordChange" >
+        </activity>
+        <activity
+            android:name=".controllers.PasswordView"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light"
+            android:label="PasswordView" >
+        </activity>
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

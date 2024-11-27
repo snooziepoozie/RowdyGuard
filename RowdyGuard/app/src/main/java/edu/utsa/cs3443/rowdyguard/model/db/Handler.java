@@ -24,10 +24,10 @@ import javax.crypto.SecretKey;
 import edu.utsa.cs3443.rowdyguard.model.Password;
 
 public class Handler implements Serializable {
-    private Context context;
-    private File dbConnector;
-    private SecretKey key;
-    private ArrayList<Password> passwords;
+    private transient Context context;
+    private transient File dbConnector;
+    private transient SecretKey key;
+    private transient ArrayList<Password> passwords;
 
     public Handler(String password, Context context) throws Exception {
         this.context = context;
@@ -42,8 +42,6 @@ public class Handler implements Serializable {
 
         this.loadDatabase();
     }
-
-
     private void createDatabaseIfNotExists() throws IOException {
         File file = new File(context.getFilesDir(), "database.db");
         if (file.createNewFile()) {
