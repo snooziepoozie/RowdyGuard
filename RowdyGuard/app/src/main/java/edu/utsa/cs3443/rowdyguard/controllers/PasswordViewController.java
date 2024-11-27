@@ -36,6 +36,7 @@ public class PasswordViewController {
         TextView passTitle = passwordViewActivity.findViewById(R.id.PasswordTitle);
 
         Button passSettings = passwordViewActivity.findViewById(R.id.passwordSettingBtn);
+        Button passDelete = passwordViewActivity.findViewById(R.id.passwordDeleteBtn);
 
         // Get data
         // Get titleToLookFor from intent from vault view
@@ -54,6 +55,7 @@ public class PasswordViewController {
         passPass.setText(myPassword.getPassword());
         passTitle.setText(myPassword.getTitle());
 
+        // change password button
         // finalMyPassword prevents errors(?)
         Password finalMyPassword = myPassword;
         passSettings.setOnClickListener(view -> {
@@ -61,6 +63,21 @@ public class PasswordViewController {
             i.putExtra("handler", myPasswordHandler); // Pass the handler
             i.putExtra("passwordTitle", finalMyPassword.getTitle()); // Pass the password title
             passwordViewActivity.startActivity(i);
+        });
+
+        // delete password button
+        passDelete.setOnClickListener(view -> {
+            try {
+                myPasswordHandler.removePassword(titleToLookFor);
+                // make a toast?
+                Toast.makeText(passwordViewActivity, "Removed the password " + titleToLookFor, Toast.LENGTH_SHORT).show();
+            } catch (Exception e) {
+                System.out.println("ERROR: Unable to remove the password " + titleToLookFor);
+                // make a toast?
+                Toast.makeText(passwordViewActivity, "Unable to remove password, please try again.", Toast.LENGTH_SHORT).show();
+
+                throw new RuntimeException(e);
+            }
         });
 
 
