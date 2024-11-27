@@ -1,0 +1,134 @@
+Index: RowdyGuard/app/src/main/res/layout/vault_overview.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    android:orientation=\"vertical\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\">\n\n</LinearLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/RowdyGuard/app/src/main/res/layout/vault_overview.xml b/RowdyGuard/app/src/main/res/layout/vault_overview.xml
+--- a/RowdyGuard/app/src/main/res/layout/vault_overview.xml	(revision 2f118b1385f84b549d1fc8a4622603af601675da)
++++ b/RowdyGuard/app/src/main/res/layout/vault_overview.xml	(date 1732415450559)
+@@ -4,4 +4,6 @@
+     android:layout_width="match_parent"
+     android:layout_height="match_parent">
+ 
++
++
+ </LinearLayout>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ProjectRootManager\">\n    <output url=\"file://$PROJECT_DIR$/out\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 2f118b1385f84b549d1fc8a4622603af601675da)
++++ b/.idea/misc.xml	(date 1732415134660)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager">
++  <component name="ProjectRootManager" version="2" project-jdk-name="Android API 34, extension level 7 Platform" project-jdk-type="Android SDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"NONE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"c1b8cf9e-3ed5-4cd5-9085-ea84011f6334\" name=\"Changes\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"ClangdSettings\">\n    <option name=\"formatViaClangd\" value=\"false\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\">{\n  &quot;lastFilter&quot;: {\n    &quot;state&quot;: &quot;OPEN&quot;,\n    &quot;assignee&quot;: &quot;HullaBrian&quot;\n  }\n}</component>\n  <component name=\"GithubPullRequestsUISettings\">{\n  &quot;selectedUrlAndAccountId&quot;: {\n    &quot;url&quot;: &quot;https://github.com/snooziepoozie/RowdyGuard.git&quot;,\n    &quot;accountId&quot;: &quot;6515d569-6d84-4c6b-9d1b-c1c2bf527f95&quot;\n  }\n}</component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 7\n}</component>\n  <component name=\"ProjectId\" id=\"2o7FMa4RvfgpXFVsiBOadS2bKaN\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,\n    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,\n    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;,\n    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/danny/OneDrive/Desktop/AppProgramming&quot;\n  }\n}</component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"c1b8cf9e-3ed5-4cd5-9085-ea84011f6334\" name=\"Changes\" comment=\"\" />\n      <created>1730212659292</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1730212659292</updated>\n    </task>\n    <servers />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 2f118b1385f84b549d1fc8a4622603af601675da)
++++ b/.idea/workspace.xml	(date 1732496737995)
+@@ -5,7 +5,10 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="c1b8cf9e-3ed5-4cd5-9085-ea84011f6334" name="Changes" comment="">
++      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/layout/vault_overview.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/layout/vault_overview.xml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -16,6 +19,11 @@
+     <option name="formatViaClangd" value="false" />
+   </component>
+   <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="project-restructure" />
++      </map>
++    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+   <component name="GitHubPullRequestSearchHistory">{
+@@ -24,12 +32,12 @@
+     &quot;assignee&quot;: &quot;HullaBrian&quot;
+   }
+ }</component>
+-  <component name="GithubPullRequestsUISettings">{
+-  &quot;selectedUrlAndAccountId&quot;: {
+-    &quot;url&quot;: &quot;https://github.com/snooziepoozie/RowdyGuard.git&quot;,
+-    &quot;accountId&quot;: &quot;6515d569-6d84-4c6b-9d1b-c1c2bf527f95&quot;
+-  }
+-}</component>
++  <component name="GithubPullRequestsUISettings"><![CDATA[{
++  "selectedUrlAndAccountId": {
++    "url": "https://github.com/snooziepoozie/RowdyGuard.git",
++    "accountId": "58108583-2aeb-47d8-9fbf-5115570fb717"
++  }
++}]]></component>
+   <component name="ProjectColorInfo">{
+   &quot;associatedIndex&quot;: 7
+ }</component>
+@@ -46,7 +54,7 @@
+     &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;danny2&quot;,
+     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+     &quot;last_opened_file_path&quot;: &quot;C:/Users/danny/OneDrive/Desktop/AppProgramming&quot;
+@@ -63,4 +71,15 @@
+     </task>
+     <servers />
+   </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
++  </component>
+ </project>
+\ No newline at end of file
+Index: .idea/caches/deviceStreaming.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"DeviceStreaming\">\n    <option name=\"deviceSelectionList\">\n      <list>\n        <PersistentDeviceSelectionData>\n          <option name=\"api\" value=\"27\" />\n          <option name=\"brand\" value=\"DOCOMO\" />\n          <option name=\"codename\" value=\"F01L\" />\n          <option name=\"id\" value=\"F01L\" />\n          <option name=\"manufacturer\" value=\"FUJITSU\" />\n          <option name=\"name\" value=\"F-01L\" />\n          <option name=\"screenDensity\" value=\"360\" />\n          <option name=\"screenX\" value=\"720\" />\n          <option name=\"screenY\" value=\"1280\" />\n        </PersistentDeviceSelectionData>\n        <PersistentDeviceSelectionData>\n          <option name=\"api\" value=\"28\" />\n          <option name=\"brand\" value=\"DOCOMO\" />\n          <option name=\"codename\" value=\"SH-01L\" />\n          <option name=\"id\" value=\"SH-01L\" />\n          <option name=\"manufacturer\" value=\"SHARP\" />\n          <option name=\"name\" value=\"AQUOS sense2 SH-01L\" />\n          <option name=\"screenDensity\" value=\"480\" />\n          <option name=\"screenX\" value=\"1080\" />\n          <option name=\"screenY\" value=\"2160\" />\n        </PersistentDeviceSelectionData>\n        <PersistentDeviceSelectionData>\n          <option name=\"api\" value=\"34\" />\n          <option name=\"brand\" value=\"Lenovo\" />\n          <option name=\"codename\" value=\"TB370FU\" />\n          <option name=\"id\" value=\"TB370FU\" />\n          <option name=\"manufacturer\" value=\"Lenovo\" />\n          <option name=\"name\" value=\"Tab P12\" />\n          <option name=\"screenDensity\" value=\"340\" />\n          <option name=\"screenX\" value=\"1840\" />\n          <option name=\"screenY\" value=\"2944\" />\n        </PersistentDeviceSelectionData>\n        <PersistentDeviceSelectionData>\n          <option name=\"api\" value=\"31\" />\n          <option name=\"brand\" value=\"samsung\" />\n          <option name=\"codename\" value=\"a51\" />\n          <option name=\"id\" value=\"a51\" />\n          <option name=\"manufacturer\" value=\"Samsung\" />\n          <option name=\"name\" value=\"Galaxy A51\" />\n          <option name=\"screenDensity\" value=\"420\" />\n          <option name=\"screenX\" value=\"1080\" />\n          <option name=\"screenY\" value=\"2400\" />\n        </PersistentDeviceSelectionData>\n        <PersistentDeviceSelectionData>\n          <option name=\"api\" value=\"34\" />\n          <option name=\"brand\" value=\"google\" />\n          <option name=\"codename\" value=\"akita\" />\n          <option name=\"id\" value=\"akita\" />\n          <option name=\"manufacturer\" value=\"Google\" />\n          <option name=\"name\" value=\"Pixel 8a\" />\n          <option name=\"screenDensity\" value=\"420\" />\n          <option name=\"screenX\" value=\"1080\" />\n          <option name=\"screenY\" value=\"2400\" />\n        </PersistentDeviceSelectionData>\n        <PersistentDeviceSelectionData>\n          <option name=\"api\" value=\"33\" />\n          <option name=\"brand\" value=\"samsung\" />\n          <option name=\"codename\" value=\"b0q\" />\n          <option name=\"id\" value=\"b0q\" />\n          <option name=\"manufacturer\" value=\"Samsung\" />\n          <option name=\"name\" value=\"Galaxy S22 Ultra\" />\n          <option name=\"screenDensity\" value=\"600\" />\n          <option name=\"screenX\" value=\"1440\" />\n          <option name=\"screenY\" value=\"3088\" />\n        </PersistentDeviceSelectionData>\n        <PersistentDeviceSelectionData>\n          <option name=\"api\" value=\"32\" />\n          <option name=\"brand\" value=\"google\" />\n          <option name=\"codename\" value=\"bluejay\" />\n          <option name=\"id\" value=\"bluejay\" />\n          <option name=\"manufacturer\" value=\"Google\" />\n          <option name=\"name\" value=\"Pixel 6a\" />\n          <option name=\"screenDensity\" value=\"420\" />\n          <option name=\"screenX\" value=\"1080\" />\n          <option name=\"screenY\" value=\"2400\" />\n        </PersistentDeviceSelectionData>\n        <PersistentDeviceSelectionData>\n          <option name=\"api\" value=\"34\" />\n          <option name=\"brand\" value=\"google\" />\n          <option name=\"codename\" value=\"caiman\" />\n          <option name=\"id\" value=\"caiman\" />\n          <option name=\"manufacturer\" value=\"Google\" />\n          <option name=\"name\" value=\"Pixel 9 Pro\" />\n          <option name=\"screenDensity\" value=\"360\" />\n          <option name=\"screenX\" value=\"960\" />\n          <option name=\"screenY\" value=\"2142\" />\n        </PersistentDeviceSelectionData>\n        <PersistentDeviceSelectionData>\n          <option name=\"api\" value=\"34\" />\n          <option name=\"brand\" value=\"google\" />\n          <option name=\"codename\" value=\"comet\" />\n          <option name=\"id\" value=\"comet\" />\n          <option name=\"manufacturer\" value=\"Google\" />\n          <option name=\"name\" value=\"Pixel 9 Pro Fold\" />\n          <option name=\"screenDensity\" value=\"390\" />\n          <option name=\"screenX\" value=\"2076\" />\n          <option name=\"screenY\" value=\"2152\" />\n        </PersistentDeviceSelectionData>\n        <PersistentDeviceSelectionData>\n          <option name=\"api\" value=\"29\" />\n          <option name=\"brand\" value=\"samsung\" />\n          <option name=\"codename\" value=\"crownqlteue\" />\n          <option name=\"id\" value=\"crownqlteue\" />\n          <option name=\"manufacturer\" value=\"Samsung\" />\n          <option name=\"name\" value=\"Galaxy Note9\" />\n          <option name=\"screenDensity\" value=\"420\" />\n          <option name=\"screenX\" value=\"2220\" />\n          <option name=\"screenY\" value=\"1080\" />\n        </PersistentDeviceSelectionData>\n        <PersistentDeviceSelectionData>\n          <option name=\"api\" value=\"34\" />\n          <option name=\"brand\" value=\"samsung\" />\n          <option name=\"codename\" value=\"dm3q\" />\n          <option name=\"id\" value=\"dm3q\" />\n          <option name=\"manufacturer\" value=\"Samsung\" />\n          <option name=\"name\" value=\"Galaxy S23 Ultra\" />\n          <option name=\"screenDensity\" value=\"600\" />\n          <option name=\"screenX\" value=\"1440\" />\n          <option name=\"screenY\" value=\"3088\" />\n        </PersistentDeviceSelectionData>\n        <PersistentDeviceSelectionData>\n          <option name=\"api\" value=\"34\" />\n          <option name=\"brand\" value=\"samsung\" />\n          <option name=\"codename\" value=\"e1q\" />\n          <option name=\"id\" value=\"e1q\" />\n          <option name=\"manufacturer\" value=\"Samsung\" />\n          <option name=\"name\" value=\"Galaxy S24\" />\n          <option name=\"screenDensity\" value=\"480\" />\n          <option name=\"screenX\" value=\"1080\" />\n          <option name=\"screenY\" value=\"2340\" />\n        </PersistentDeviceSelectionData>\n        <PersistentDeviceSelectionData>\n          <option name=\"api\" value=\"33\" />\n          <option name=\"brand\" value=\"google\" />\n          <option name=\"codename\" value=\"felix\" />\n          <option name=\"id\" value=\"felix\" />\n          <option name=\"manufacturer\" value=\"Google\" />\n          <option name=\"name\" value=\"Pixel Fold\" />\n          <option name=\"screenDensity\" value=\"420\" />\n          <option name=\"screenX\" value=\"2208\" />\n          <option name=\"screenY\" value=\"1840\" />\n        </PersistentDeviceSelectionData>\n        <PersistentDeviceSelectionData>\n          <option name=\"api\" value=\"34\" />\n          <option name=\"brand\" value=\"google\" />\n          <option name=\"codename\" value=\"felix\" />\n          <option name=\"id\" value=\"felix\" />\n          <option name=\"manufacturer\" value=\"Google\" />\n          <option name=\"name\" value=\"Pixel Fold\" />\n          <option name=\"screenDensity\" value=\"420\" />\n          <option name=\"screenX\" value=\"2208\" />\n          <option name=\"screenY\" value=\"1840\" />\n        </PersistentDeviceSelectionData>\n        <PersistentDeviceSelectionData>\n          <option name=\"api\" value=\"33\" />\n          <option name=\"brand\" value=\"google\" />\n          <option name=\"codename\" value=\"felix_camera\" />\n          <option name=\"id\" value=\"felix_camera\" />\n          <option name=\"manufacturer\" value=\"Google\" />\n          <option name=\"name\" value=\"Pixel Fold (Camera-enabled)\" />\n          <option name=\"screenDensity\" value=\"420\" />\n          <option name=\"screenX\" value=\"2208\" />\n          <option name=\"screenY\" value=\"1840\" />\n        </PersistentDeviceSelectionData>\n        <PersistentDeviceSelectionData>\n          <option name=\"api\" value=\"33\" />\n          <option name=\"brand\" value=\"samsung\" />\n          <option name=\"codename\" value=\"gts8uwifi\" />\n          <option name=\"id\" value=\"gts8uwifi\" />\n          <option name=\"manufacturer\" value=\"Samsung\" />\n          <option name=\"name\" value=\"Galaxy Tab S8 Ultra\" />\n          <option name=\"screenDensity\" value=\"320\" />\n          <option name=\"screenX\" value=\"1848\" />\n          <option name=\"screenY\" value=\"2960\" />\n        </PersistentDeviceSelectionData>\n        <PersistentDeviceSelectionData>\n          <option name=\"api\" value=\"34\" />\n          <option name=\"brand\" value=\"google\" />\n          <option name=\"codename\" value=\"husky\" />\n          <option name=\"id\" value=\"husky\" />\n          <option name=\"manufacturer\" value=\"Google\" />\n          <option name=\"name\" value=\"Pixel 8 Pro\" />\n          <option name=\"screenDensity\" value=\"390\" />\n          <option name=\"screenX\" value=\"1008\" />\n          <option name=\"screenY\" value=\"2244\" />\n        </PersistentDeviceSelectionData>\n        <PersistentDeviceSelectionData>\n          <option name=\"api\" value=\"30\" />\n          <option name=\"brand\" value=\"motorola\" />\n          <option name=\"codename\" value=\"java\" />\n          <option name=\"id\" value=\"java\" />\n          <option name=\"manufacturer\" value=\"Motorola\" />\n          <option name=\"name\" value=\"G20\" />\n          <option name=\"screenDensity\" value=\"280\" />\n          <option name=\"screenX\" value=\"720\" />\n          <option name=\"screenY\" value=\"1600\" />\n        </PersistentDeviceSelectionData>\n        <PersistentDeviceSelectionData>\n          <option name=\"api\" value=\"34\" />\n          <option name=\"brand\" value=\"google\" />\n          <option name=\"codename\" value=\"komodo\" />\n          <option name=\"id\" value=\"komodo\" />\n          <option name=\"manufacturer\" value=\"Google\" />\n          <option name=\"name\" value=\"Pixel 9 Pro XL\" />\n          <option name=\"screenDensity\" value=\"360\" />\n          <option name=\"screenX\" value=\"1008\" />\n          <option name=\"screenY\" value=\"2244\" />\n        </PersistentDeviceSelectionData>\n        <PersistentDeviceSelectionData>\n          <option name=\"api\" value=\"33\" />\n          <option name=\"brand\" value=\"google\" />\n          <option name=\"codename\" value=\"lynx\" />\n          <option name=\"id\" value=\"lynx\" />\n          <option name=\"manufacturer\" value=\"Google\" />\n          <option name=\"name\" value=\"Pixel 7a\" />\n          <option name=\"screenDensity\" value=\"420\" />\n          <option name=\"screenX\" value=\"1080\" />\n          <option name=\"screenY\" value=\"2400\" />\n        </PersistentDeviceSelectionData>\n        <PersistentDeviceSelectionData>\n          <option name=\"api\" value=\"31\" />\n          <option name=\"brand\" value=\"google\" />\n          <option name=\"codename\" value=\"oriole\" />\n          <option name=\"id\" value=\"oriole\" />\n          <option name=\"manufacturer\" value=\"Google\" />\n          <option name=\"name\" value=\"Pixel 6\" />\n          <option name=\"screenDensity\" value=\"420\" />\n          <option name=\"screenX\" value=\"1080\" />\n          <option name=\"screenY\" value=\"2400\" />\n        </PersistentDeviceSelectionData>\n        <PersistentDeviceSelectionData>\n          <option name=\"api\" value=\"33\" />\n          <option name=\"brand\" value=\"google\" />\n          <option name=\"codename\" value=\"panther\" />\n          <option name=\"id\" value=\"panther\" />\n          <option name=\"manufacturer\" value=\"Google\" />\n          <option name=\"name\" value=\"Pixel 7\" />\n          <option name=\"screenDensity\" value=\"420\" />\n          <option name=\"screenX\" value=\"1080\" />\n          <option name=\"screenY\" value=\"2400\" />\n        </PersistentDeviceSelectionData>\n        <PersistentDeviceSelectionData>\n          <option name=\"api\" value=\"34\" />\n          <option name=\"brand\" value=\"samsung\" />\n          <option name=\"codename\" value=\"q5q\" />\n          <option name=\"id\" value=\"q5q\" />\n          <option name=\"manufacturer\" value=\"Samsung\" />\n          <option name=\"name\" value=\"Galaxy Z Fold5\" />\n          <option name=\"screenDensity\" value=\"420\" />\n          <option name=\"screenX\" value=\"1812\" />\n          <option name=\"screenY\" value=\"2176\" />\n        </PersistentDeviceSelectionData>\n        <PersistentDeviceSelectionData>\n          <option name=\"api\" value=\"34\" />\n          <option name=\"brand\" value=\"samsung\" />\n          <option name=\"codename\" value=\"q6q\" />\n          <option name=\"id\" value=\"q6q\" />\n          <option name=\"manufacturer\" value=\"Samsung\" />\n          <option name=\"name\" value=\"SM-F956B\" />\n          <option name=\"screenDensity\" value=\"420\" />\n          <option name=\"screenX\" value=\"1856\" />\n          <option name=\"screenY\" value=\"2160\" />\n        </PersistentDeviceSelectionData>\n        <PersistentDeviceSelectionData>\n          <option name=\"api\" value=\"30\" />\n          <option name=\"brand\" value=\"google\" />\n          <option name=\"codename\" value=\"r11\" />\n          <option name=\"id\" value=\"r11\" />\n          <option name=\"manufacturer\" value=\"Google\" />\n          <option name=\"name\" value=\"Pixel Watch\" />\n          <option name=\"screenDensity\" value=\"320\" />\n          <option name=\"screenX\" value=\"384\" />\n          <option name=\"screenY\" value=\"384\" />\n          <option name=\"type\" value=\"WEAR_OS\" />\n        </PersistentDeviceSelectionData>\n        <PersistentDeviceSelectionData>\n          <option name=\"api\" value=\"30\" />\n          <option name=\"brand\" value=\"google\" />\n          <option name=\"codename\" value=\"redfin\" />\n          <option name=\"id\" value=\"redfin\" />\n          <option name=\"manufacturer\" value=\"Google\" />\n          <option name=\"name\" value=\"Pixel 5\" />\n          <option name=\"screenDensity\" value=\"440\" />\n          <option name=\"screenX\" value=\"1080\" />\n          <option name=\"screenY\" value=\"2340\" />\n        </PersistentDeviceSelectionData>\n        <PersistentDeviceSelectionData>\n          <option name=\"api\" value=\"34\" />\n          <option name=\"brand\" value=\"google\" />\n          <option name=\"codename\" value=\"shiba\" />\n          <option name=\"id\" value=\"shiba\" />\n          <option name=\"manufacturer\" value=\"Google\" />\n          <option name=\"name\" value=\"Pixel 8\" />\n          <option name=\"screenDensity\" value=\"420\" />\n          <option name=\"screenX\" value=\"1080\" />\n          <option name=\"screenY\" value=\"2400\" />\n        </PersistentDeviceSelectionData>\n        <PersistentDeviceSelectionData>\n          <option name=\"api\" value=\"33\" />\n          <option name=\"brand\" value=\"google\" />\n          <option name=\"codename\" value=\"tangorpro\" />\n          <option name=\"id\" value=\"tangorpro\" />\n          <option name=\"manufacturer\" value=\"Google\" />\n          <option name=\"name\" value=\"Pixel Tablet\" />\n          <option name=\"screenDensity\" value=\"320\" />\n          <option name=\"screenX\" value=\"1600\" />\n          <option name=\"screenY\" value=\"2560\" />\n        </PersistentDeviceSelectionData>\n        <PersistentDeviceSelectionData>\n          <option name=\"api\" value=\"34\" />\n          <option name=\"brand\" value=\"google\" />\n          <option name=\"codename\" value=\"tokay\" />\n          <option name=\"id\" value=\"tokay\" />\n          <option name=\"manufacturer\" value=\"Google\" />\n          <option name=\"name\" value=\"Pixel 9\" />\n          <option name=\"screenDensity\" value=\"420\" />\n          <option name=\"screenX\" value=\"1080\" />\n          <option name=\"screenY\" value=\"2424\" />\n        </PersistentDeviceSelectionData>\n      </list>\n    </option>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/caches/deviceStreaming.xml b/.idea/caches/deviceStreaming.xml
+--- a/.idea/caches/deviceStreaming.xml	(revision 2f118b1385f84b549d1fc8a4622603af601675da)
++++ b/.idea/caches/deviceStreaming.xml	(date 1732415150727)
+@@ -262,7 +262,7 @@
+           <option name="codename" value="q6q" />
+           <option name="id" value="q6q" />
+           <option name="manufacturer" value="Samsung" />
+-          <option name="name" value="SM-F956B" />
++          <option name="name" value="Galaxy Z Fold6" />
+           <option name="screenDensity" value="420" />
+           <option name="screenX" value="1856" />
+           <option name="screenY" value="2160" />

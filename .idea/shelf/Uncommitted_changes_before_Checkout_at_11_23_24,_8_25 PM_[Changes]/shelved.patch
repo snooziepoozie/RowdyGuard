@@ -1,0 +1,60 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"NONE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"c1b8cf9e-3ed5-4cd5-9085-ea84011f6334\" name=\"Changes\" comment=\"\" />\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"ClangdSettings\">\n    <option name=\"formatViaClangd\" value=\"false\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\">{\n  &quot;lastFilter&quot;: {\n    &quot;state&quot;: &quot;OPEN&quot;,\n    &quot;assignee&quot;: &quot;HullaBrian&quot;\n  }\n}</component>\n  <component name=\"GithubPullRequestsUISettings\"><![CDATA[{\n  \"selectedUrlAndAccountId\": {\n    \"url\": \"https://github.com/snooziepoozie/RowdyGuard.git\",\n    \"accountId\": \"c77b53c5-51ae-4431-9a64-0112653f0fae\"\n  }\n}]]></component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 7\n}</component>\n  <component name=\"ProjectId\" id=\"2o7FMa4RvfgpXFVsiBOadS2bKaN\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"RunOnceActivity.cidr.known.project.marker\": \"true\",\n    \"RunOnceActivity.readMode.enableVisualFormatting\": \"true\",\n    \"cf.first.check.clang-format\": \"false\",\n    \"cidr.known.project.marker\": \"true\",\n    \"git-widget-placeholder\": \"main\",\n    \"ignore.virus.scanning.warn.message\": \"true\",\n    \"kotlin-language-version-configured\": \"true\",\n    \"last_opened_file_path\": \"D:/RowdyGuard\"\n  }\n}]]></component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"c1b8cf9e-3ed5-4cd5-9085-ea84011f6334\" name=\"Changes\" comment=\"\" />\n      <created>1730212659292</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1730212659292</updated>\n    </task>\n    <servers />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 6234ae35cdb1bbfa8d4ee5e83a2718ce4513e8ed)
++++ b/.idea/workspace.xml	(date 1732414820688)
+@@ -4,7 +4,9 @@
+     <option name="autoReloadType" value="NONE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="c1b8cf9e-3ed5-4cd5-9085-ea84011f6334" name="Changes" comment="" />
++    <list default="true" id="c1b8cf9e-3ed5-4cd5-9085-ea84011f6334" name="Changes" comment="">
++      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -14,6 +16,11 @@
+     <option name="formatViaClangd" value="false" />
+   </component>
+   <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="db-dbencrypt" />
++      </map>
++    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+   <component name="GitHubPullRequestSearchHistory">{
+@@ -22,12 +29,12 @@
+     &quot;assignee&quot;: &quot;HullaBrian&quot;
+   }
+ }</component>
+-  <component name="GithubPullRequestsUISettings"><![CDATA[{
+-  "selectedUrlAndAccountId": {
+-    "url": "https://github.com/snooziepoozie/RowdyGuard.git",
+-    "accountId": "c77b53c5-51ae-4431-9a64-0112653f0fae"
++  <component name="GithubPullRequestsUISettings">{
++  &quot;selectedUrlAndAccountId&quot;: {
++    &quot;url&quot;: &quot;https://github.com/snooziepoozie/RowdyGuard.git&quot;,
++    &quot;accountId&quot;: &quot;c77b53c5-51ae-4431-9a64-0112653f0fae&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="ProjectColorInfo">{
+   &quot;associatedIndex&quot;: 7
+ }</component>
+@@ -44,7 +51,7 @@
+     "RunOnceActivity.readMode.enableVisualFormatting": "true",
+     "cf.first.check.clang-format": "false",
+     "cidr.known.project.marker": "true",
+-    "git-widget-placeholder": "main",
++    "git-widget-placeholder": "project-restructure",
+     "ignore.virus.scanning.warn.message": "true",
+     "kotlin-language-version-configured": "true",
+     "last_opened_file_path": "D:/RowdyGuard"
