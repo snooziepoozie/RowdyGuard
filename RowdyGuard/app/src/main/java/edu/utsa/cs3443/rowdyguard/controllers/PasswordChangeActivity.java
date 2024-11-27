@@ -18,7 +18,6 @@ import edu.utsa.cs3443.rowdyguard.model.db.Handler;
 
 public class PasswordChangeActivity extends AppCompatActivity {
 
-    private PasswordChangeController passwordChangeController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
