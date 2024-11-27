@@ -13,8 +13,6 @@
     <string name="password_enter_new_url">Enter a new URL:</string>
     <string name="password_submit_changes">Submit Changes</string>
 
-    <string name="vault_view_title">These Passwords</string>
-
     <string name="settings_title">Settings</string>
     <string name="invertColors_title">Invert Colors</string>
     <string name="changePassword_textbox">Change Password</string>
