@@ -4,6 +4,7 @@
     <string name="password_username">PasswordUsername</string>
     <string name="password_password">PasswordPassword</string>
     <string name="password_url">PasswordURL</string>
+    <string name="vault_view_title">These Passwords</string>
     <string name="no_password_error">No Passwords Detected</string>
 
     <string name="password_enter_new_user">Enter a new username:</string>
