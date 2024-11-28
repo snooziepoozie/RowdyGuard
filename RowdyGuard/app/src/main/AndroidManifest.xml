@@ -33,6 +33,18 @@
             android:theme="@style/Theme.AppCompat.Light"
             android:label="Settings" >
         </activity>
+        <activity
+            android:name=".controllers.PasswordChange"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light"
+            android:label="PasswordChange" >
+        </activity>
+        <activity
+            android:name=".controllers.PasswordView"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light"
+            android:label="PasswordView" >
+        </activity>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

@@ -24,7 +24,7 @@ public class PasswordChange extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.password_change_view);
+        setContentView(R.layout.password_change);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -37,7 +37,7 @@ public class PasswordChange extends AppCompatActivity {
 
         TextView newUserField = this.findViewById(R.id.enterNewUser);
         TextView newPassField = this.findViewById(R.id.enterNewPass);
-//        TextView newTitleField = this.findViewById(R.id.enterNewTitle);
+        TextView newTitleField = this.findViewById(R.id.enterNewTitle);
 
         Button submitButton = this.findViewById(R.id.passwordSubmitChangeBtn);
 
@@ -45,7 +45,7 @@ public class PasswordChange extends AppCompatActivity {
             try {
                 String newUser = newUserField.getText().toString().trim();
                 String newPass = newPassField.getText().toString().trim();
-//                String newTitle = newTitleField.getText().toString().trim();
+                String newTitle = newTitleField.getText().toString().trim();
 
                 // assume handler is not null?
                 assert myPasswordHandler != null;
@@ -53,7 +53,7 @@ public class PasswordChange extends AppCompatActivity {
 
                 Intent i = new Intent(this, PasswordView.class);
                 i.putExtra("handler", (Serializable) myPasswordHandler);
-//                i.putExtra("title", newTitle.isEmpty() ? passwordTitle : newTitle); // Use new title if changed
+                i.putExtra("title", newTitle.isEmpty() ? passwordTitle : newTitle); // Use new title if changed
                 this.startActivity(i);
 
             } catch (Exception e) {
