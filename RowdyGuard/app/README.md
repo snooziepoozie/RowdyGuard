@@ -25,7 +25,7 @@ In the vault overview, if a user wants to access their credentials, all they hav
 corresponding button. RowdyGuard will then display the title, username, and password in a dedicated
 activity. If the user wants to either delete or edit said password, there are convenient buttons at
 the top of the screen.
-
+# 
 ## How to Clone and Run RowdyGuard
 
 To run this application, first ensure git is properly downloaded on your device.
