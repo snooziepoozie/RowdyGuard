@@ -23,12 +23,24 @@ import javax.crypto.SecretKey;
 
 import edu.utsa.cs3443.rowdyguard.model.Password;
 
+/**
+ * The Handler class represents an object that serves as an interface with the password database
+ *
+ * @author Jonathan Beierle
+ */
+
 public class Handler implements Serializable {
     private transient Context context;
     private transient File dbConnector;
     private transient SecretKey key;
     private transient ArrayList<Password> passwords;
 
+    /**
+     * Constructor to instantiate a new Handler object
+     * @param password Password to try decrypting the database with
+     * @param context The Android context object that allows for access to the database
+     * @throws Exception Exception representing an error with database access/decryption
+     */
     public Handler(String password, Context context) throws Exception {
         this.context = context;
         this.key = deriveKeyFromPassword(password, new byte[12]);
@@ -42,6 +54,11 @@ public class Handler implements Serializable {
 
         this.loadDatabase();
     }
+
+    /**
+     * Creates the database if it doesn't already exist
+     * @throws IOException Exception indicating an error in creating the database
+     */
     private void createDatabaseIfNotExists() throws IOException {
         File file = new File(context.getFilesDir(), "database.db");
         if (file.createNewFile()) {
@@ -50,6 +67,11 @@ public class Handler implements Serializable {
             System.out.println("Database already exists!");
         }
     }
+
+    /**
+     * Loads the database into the Handler object. Reads and decrypts database
+     * @throws Exception Exception occurring if the database cannot be loaded properly
+     */
     private void loadDatabase() throws Exception {
         System.out.println("Loading database...");
         Scanner scanner = new Scanner(this.dbConnector);
@@ -76,9 +98,22 @@ public class Handler implements Serializable {
         scanner.close();
         System.out.println("Finished loading database!");
     }
+
+    /**
+     * Method for returning all the decrypted database passwords in one arraylist
+     * @return arraylist representing all passwords from the database
+     */
     public ArrayList<Password> getPasswords() {
         return this.passwords;
     }
+
+    /**
+     * Adds a password to the database
+     * @param title The password object's title
+     * @param username The password object's username
+     * @param password The password object's actual password
+     * @throws Exception Occurs if the password cannot be added to the database.=
+     */
     public void addPassword(String title, String username, String password) throws Exception {
         this.passwords.add(new Password(title, username, password));
         Writer output = new BufferedWriter(
@@ -94,6 +129,13 @@ public class Handler implements Serializable {
 
         System.out.println("Wrote password with title \"" + title + "\"to database!");
     }
+
+    /**
+     * Removes a password from the database
+     * @param title The title of the password to remove
+     * @return boolean representing the status of removing the password: true if success, false if not successful
+     * @throws Exception Occurs if something went wrong while attempting to remove the password from the database
+     */
     public boolean removePassword(String title) throws Exception {
         File tempFile = new File(context.getFilesDir(),"database.db.tmp");
         tempFile.createNewFile();
@@ -121,10 +163,17 @@ public class Handler implements Serializable {
         }
         return false;
     }
+
+    /**
+     * Edits a password in the database. For params that begin with new, pass an empty string to not update the values
+     * @param oldTitle The old title of the password - used to find the password to edit
+     * @param newTitle The new title of the password - this is used to update the old title if necessary
+     * @param newUserName The new username of the password
+     * @param newPassword The new password of the password object
+     * @return boolean representing the status of the edit operation. true if success, false if unsuccessful
+     * @throws Exception Error if one of the password edit operations failed
+     */
     public boolean editPassword(String oldTitle, String newTitle, String newUserName, String newPassword) throws Exception {
-        /*
-        Edit a given password. If you don't want to edit an attribute, pass an empty string
-         */
         for (Password p : this.passwords) {
             if (p.getTitle().equals(oldTitle)) {
                 if (!newTitle.isEmpty())
@@ -140,6 +189,12 @@ public class Handler implements Serializable {
         }
         return false;
     }
+
+    /**
+     * Method to change the encryption password of the database
+     * @param newPassword The new password to encrypt all passwords with
+     * @throws Exception Error if the database's encrypted key couldn't be changed
+     */
     public void changeVaultPassword(String newPassword) throws Exception {
         this.key = deriveKeyFromPassword(newPassword, new byte[12]);
         ArrayList<Password> passwordBackup = new ArrayList<>(this.getPasswords());
