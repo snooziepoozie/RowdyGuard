@@ -17,9 +17,22 @@ import androidx.core.view.WindowInsetsCompat;
 import edu.utsa.cs3443.rowdyguard.R;
 import edu.utsa.cs3443.rowdyguard.model.db.Handler;
 
+/**
+ * The main activity for the application.
+ * Provides login interface for user and initializes the application
+ * Handles login, validates credentials, and redirects to the vault overview
+ * uses {@code Handler} to handle database operations
+ * @author Makayla Frank & Jonathan Beierle
+ */
 
 public class MainActivity extends AppCompatActivity {
     private Activity activity;
+
+    /**
+     * Initializes the main activity
+     * Sets up layout and event listeners
+     * @param savedInstanceState the saved instance state of the activity
+     */
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
