@@ -31,9 +31,10 @@ import edu.utsa.cs3443.rowdyguard.model.Password;
 
 public class Handler implements Serializable {
     private transient Context context;
-    private transient File dbConnector;
+    private File dbConnector;
     private transient SecretKey key;
-    private transient ArrayList<Password> passwords;
+    private String password;
+    private ArrayList<Password> passwords;
 
     /**
      * Constructor to instantiate a new Handler object
@@ -43,6 +44,7 @@ public class Handler implements Serializable {
      */
     public Handler(String password, Context context) throws Exception {
         this.context = context;
+        this.password = password;
         this.key = deriveKeyFromPassword(password, new byte[12]);
         this.passwords = new ArrayList<>();
         this.dbConnector = new File(
@@ -53,6 +55,23 @@ public class Handler implements Serializable {
         this.createDatabaseIfNotExists();
 
         this.loadDatabase();
+    }
+
+    /**
+     * Returns the database password to allow for inter-activity modification
+     * @return String representation of the vault password
+     */
+    public String getPassword() {
+        return this.password;
+    }
+
+    /**
+     * Generates a secret key based off of a given password and assigns it to the handler
+     * @param password Plaintext password to derive the key from
+     * @throws Exception Exception occurs if the key derivation process isn't successful
+     */
+    public void genKey(String password) throws Exception {
+        this.key = deriveKeyFromPassword(password, new byte[12]);
     }
 
     /**
@@ -127,16 +146,16 @@ public class Handler implements Serializable {
         );
         output.close();
 
-        System.out.println("Wrote password with title \"" + title + "\"to database!");
+        System.out.println("Wrote password with title \"" + title + "\" to database!");
     }
 
     /**
      * Removes a password from the database
      * @param title The title of the password to remove
-     * @return boolean representing the status of removing the password: true if success, false if not successful
      * @throws Exception Occurs if something went wrong while attempting to remove the password from the database
      */
-    public boolean removePassword(String title) throws Exception {
+    public void removePassword(String title, Context context) throws Exception {
+        this.context = context;
         File tempFile = new File(context.getFilesDir(),"database.db.tmp");
         tempFile.createNewFile();
 
@@ -152,16 +171,16 @@ public class Handler implements Serializable {
         writer.close();
         reader.close();
 
-        if (tempFile.renameTo(this.dbConnector)){
+        if (tempFile.renameTo(this.dbConnector)) {
             for (Password p: this.passwords) {
+                System.out.println(title + p.getTitle());
                 if (p.getTitle().equals(title)) {
                     this.passwords.remove(p);
-                    System.out.println("Removed " + title + " from database!");
-                    return true;
+                    System.out.println("Removed '" + title + "' from database!");
+                    return;
                 }
             }
         }
-        return false;
     }
 
     /**
@@ -170,24 +189,22 @@ public class Handler implements Serializable {
      * @param newTitle The new title of the password - this is used to update the old title if necessary
      * @param newUserName The new username of the password
      * @param newPassword The new password of the password object
-     * @return boolean representing the status of the edit operation. true if success, false if unsuccessful
+     * @param context Context for editing the password
      * @throws Exception Error if one of the password edit operations failed
      */
-    public boolean editPassword(String oldTitle, String newTitle, String newUserName, String newPassword) throws Exception {
+    public void editPassword(String oldTitle, String newTitle, String newUserName, String newPassword, Context context) throws Exception {
+        this.context = context;
         for (Password p : this.passwords) {
             if (p.getTitle().equals(oldTitle)) {
-                if (!newTitle.isEmpty())
-                    p.setTitle(newTitle);
-                if (!newUserName.isEmpty())
-                    p.setUsername(newUserName);
-                if (!newPassword.isEmpty())
-                    p.setPassword(newPassword);
-                this.removePassword(oldTitle);
-                this.addPassword(p.getTitle(), p.getUsername(), p.getPassword());
-                return true;
+                this.removePassword(oldTitle, context);
+                this.addPassword(
+                    !newTitle.isEmpty() ? newTitle : p.getTitle(),
+                    !newUserName.isEmpty() ? newUserName : p.getUsername(),
+                    !newPassword.isEmpty() ? newPassword : p.getPassword()
+                );
+                return;
             }
         }
-        return false;
     }
 
     /**
@@ -195,14 +212,27 @@ public class Handler implements Serializable {
      * @param newPassword The new password to encrypt all passwords with
      * @throws Exception Error if the database's encrypted key couldn't be changed
      */
-    public void changeVaultPassword(String newPassword) throws Exception {
+    public void changeVaultPassword(String newPassword, Context context) throws Exception {
+        Context oldContext = this.context;
+        this.context = context;
+        SecretKey oldKey = this.key;
         this.key = deriveKeyFromPassword(newPassword, new byte[12]);
         ArrayList<Password> passwordBackup = new ArrayList<>(this.getPasswords());
-        for (Password p : this.passwords) {
-            this.removePassword(p.getTitle());
+
+        try {
+            for (Password p : this.passwords) {
+                this.removePassword(p.getTitle(), context);
+            }
+            for (Password p : passwordBackup) {
+                this.addPassword(p.getTitle(), p.getUsername(), p.getPassword());
+            }
+        } catch (Exception ignored) {
+            this.context = oldContext;
+            this.key = oldKey;
+            System.out.println("FAILED TO CHANGED VAULT PASSWORD");
+            return;
         }
-        for (Password p : passwordBackup) {
-            this.addPassword(p.getTitle(), p.getUsername(), p.getPassword());
-        }
+        this.password = newPassword;
+        System.out.println("CHANGED VAULT PASSWORD");
     }
 }

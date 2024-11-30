@@ -2,8 +2,8 @@ package edu.utsa.cs3443.rowdyguard.controllers;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
@@ -14,11 +14,11 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import edu.utsa.cs3443.rowdyguard.R;
+import edu.utsa.cs3443.rowdyguard.model.Password;
 import edu.utsa.cs3443.rowdyguard.model.db.Handler;
 
 
 public class VaultOverview extends AppCompatActivity {
-    private Handler handler;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,45 +29,54 @@ public class VaultOverview extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        Activity activity = this;
+        LinearLayout layout = findViewById(R.id.linearLayout);
         Context context = this;
+        Activity activity = this;
 
-        Button btn = findViewById(R.id.addButton);
-        Button btn2 = findViewById(R.id.removeButton);
+        Button addButton = findViewById(R.id.addButton);
+        Button settingsButton = findViewById(R.id.settingsButton);
+
+        Handler handler = (Handler) this.getIntent().getSerializableExtra("handler");
+        assert handler != null;
         try {
-            this.handler = new Handler("P@ssw0rd", this);
+            handler.genKey(handler.getPassword());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        final int[] i = {0};
 
-        LinearLayout layout = findViewById(R.id.linearLayout);
+        for (Password p: handler.getPasswords()) {
+            Button button = new Button(context);
+            button.setText(p.getTitle());
+            button.setOnClickListener(v -> {
+                Intent intent = new Intent(activity, PasswordView.class);
+                intent.putExtra("handler", handler);
+                intent.putExtra("title", p.getTitle());
+                startActivity(intent);
+            });
+            System.out.println("Created a new password button '" + p.getTitle() + "'");
+            layout.addView(button);
+        }
 
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    handler.addPassword("Password" + i[0], "username", "P@ssw0rd");
-                    Button button = new Button(context);
-                    layout.addView(button);
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
-                }
-                i[0]++;
+        addButton.setOnClickListener(v -> {
+            try {
+                handler.addPassword("New Password", "username", "P@ssw0rd");
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
+            Button button = new Button(context);
+            button.setText("New Password");
+            button.setOnClickListener(v1 -> {
+                Intent intent = new Intent(activity, PasswordView.class);
+                intent.putExtra("handler", handler);
+                intent.putExtra("title", "New Password");
+                startActivity(intent);
+            });
+            layout.addView(button);
         });
-
-        btn2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    handler.removePassword(handler.getPasswords().get(handler.getPasswords().size() - 1).getTitle());
-                } catch (java.lang.IndexOutOfBoundsException e) {
-                    System.out.println("Cannot find password to delete!");
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
-                }
-            }
+        settingsButton.setOnClickListener(view -> {
+            Intent intent = new Intent(activity, SettingsController.class);
+            intent.putExtra("handler", handler);
+            startActivity(intent);
         });
     }
 }

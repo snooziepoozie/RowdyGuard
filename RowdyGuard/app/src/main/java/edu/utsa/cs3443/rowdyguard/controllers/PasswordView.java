@@ -1,8 +1,10 @@
 package edu.utsa.cs3443.rowdyguard.controllers;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,22 +34,28 @@ public class PasswordView extends AppCompatActivity {
 
         // Retrieve Handler from the intent
         Intent intent = this.getIntent();
-        Handler myPasswordHandler = (Handler) intent.getSerializableExtra("handler");
+        Handler handler = (Handler) intent.getSerializableExtra("handler");
+        try {
+            assert handler != null;
+            handler.genKey(handler.getPassword());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
         Button passUser = this.findViewById(R.id.usernameBtn);
         Button passPass = this.findViewById(R.id.passwordBtn);
         TextView passTitle = this.findViewById(R.id.PasswordTitle);
 
-        Button passSettings = this.findViewById(R.id.passwordSettingBtn);
-        Button passDelete = this.findViewById(R.id.passwordDeleteBtn);
+        Button overView = this.findViewById(R.id.overviewButton);
+        ImageButton passSettings = this.findViewById(R.id.passwordSettingBtn);
+        ImageButton passDelete = this.findViewById(R.id.passwordDeleteBtn);
 
         // Get data
         // Get titleToLookFor from intent from vault view
         Password myPassword = null;
         String titleToLookFor = intent.getStringExtra("title");
 
-        assert myPasswordHandler != null;
-        for (Password curPassword : myPasswordHandler.getPasswords()){
+        for (Password curPassword : handler.getPasswords()){
             //if title in arraylist = titleToLookFor, get data from it and exit.
 
             if (curPassword.getTitle().equals(titleToLookFor)) {
@@ -56,16 +64,16 @@ public class PasswordView extends AppCompatActivity {
         }
 
         assert myPassword != null;
+        passTitle.setText(myPassword.getTitle());
         passUser.setText(myPassword.getUsername());
         passPass.setText(myPassword.getPassword());
-        passTitle.setText(myPassword.getTitle());
 
         // change password button
         // finalMyPassword prevents errors(?)
         Password finalMyPassword = myPassword;
         passSettings.setOnClickListener(view -> {
             Intent i = new Intent(this, PasswordChange.class);
-            i.putExtra("handler", myPasswordHandler); // Pass the handler
+            i.putExtra("handler", handler); // Pass the handler
             i.putExtra("passwordTitle", finalMyPassword.getTitle()); // Pass the password title
             this.startActivity(i);
         });
@@ -73,16 +81,22 @@ public class PasswordView extends AppCompatActivity {
         // delete password button
         passDelete.setOnClickListener(view -> {
             try {
-                myPasswordHandler.removePassword(titleToLookFor);
-                // make a toast?
+                handler.removePassword(titleToLookFor, (Context) this);
                 Toast.makeText(this, "Removed the password " + titleToLookFor, Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(this, VaultOverview.class);
+                i.putExtra("handler", handler); // Pass the handler
+                this.startActivity(i);
             } catch (Exception e) {
                 System.out.println("ERROR: Unable to remove the password " + titleToLookFor);
-                // make a toast?
                 Toast.makeText(this, "Unable to remove password, please try again.", Toast.LENGTH_SHORT).show();
-
                 throw new RuntimeException(e);
             }
+        });
+
+        overView.setOnClickListener(view -> {
+            Intent i = new Intent(this, VaultOverview.class);
+            i.putExtra("handler", handler);
+            this.startActivity(i);
         });
     }
 }

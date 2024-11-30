@@ -48,30 +48,21 @@ public class MainActivity extends AppCompatActivity {
         Button login = this.findViewById(R.id.login);
         this.activity = this;
 
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        login.setOnClickListener(v -> {
 
-                String input = editPassword.getText().toString();
+            String input = editPassword.getText().toString();
 
-                try {
-                    System.out.println("Trying password " + input);
-                    Handler handler = new Handler(input, activity);
-                    // ArrayList<Password> passwords = handler.getPasswords();
-                    Toast.makeText(activity, "Login Successful!", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(activity, VaultOverview.class);
-                    intent.putExtra("handler", handler);
-                    startActivity(intent);
-                }
-                catch (Exception e) {
-                    Toast.makeText(activity, "Login Failed", Toast.LENGTH_SHORT).show();
-                    System.out.println("Failed to load database!");
-                    try {
-                        throw e;
-                    } catch (Exception ex) {
-                        throw new RuntimeException(ex);
-                    }
-                }
+            try {
+                System.out.println("Trying password " + input);
+                Handler handler = new Handler(input, activity);
+                Toast.makeText(activity, "Login Successful!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(activity, VaultOverview.class);
+                intent.putExtra("handler", handler);
+                startActivity(intent);
+            }
+            catch (Exception e) {
+                Toast.makeText(activity, "Login Failed", Toast.LENGTH_SHORT).show();
+                System.out.println("Failed to load database!");
             }
         });
     }

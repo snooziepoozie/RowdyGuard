@@ -1,5 +1,6 @@
 package edu.utsa.cs3443.rowdyguard.controllers;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -32,7 +33,13 @@ public class PasswordChange extends AppCompatActivity {
         });
 
         Intent intent = this.getIntent();
-        Handler myPasswordHandler = (Handler) intent.getSerializableExtra("handler");
+        Handler handler = (Handler) intent.getSerializableExtra("handler");
+        try {
+            assert handler != null;
+            handler.genKey(handler.getPassword());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         String passwordTitle = intent.getStringExtra("passwordTitle");
 
         TextView newUserField = this.findViewById(R.id.enterNewUser);
@@ -42,23 +49,21 @@ public class PasswordChange extends AppCompatActivity {
         Button submitButton = this.findViewById(R.id.passwordSubmitChangeBtn);
 
         submitButton.setOnClickListener(view -> {
+            String newTitle = newTitleField.getText().toString().trim();
+            String newUser = newUserField.getText().toString().trim();
+            String newPass = newPassField.getText().toString().trim();
+
             try {
-                String newUser = newUserField.getText().toString().trim();
-                String newPass = newPassField.getText().toString().trim();
-                String newTitle = newTitleField.getText().toString().trim();
-
-                // assume handler is not null?
-                assert myPasswordHandler != null;
-                myPasswordHandler.editPassword(passwordTitle, "", newUser, newPass);
-
-                Intent i = new Intent(this, PasswordView.class);
-                i.putExtra("handler", (Serializable) myPasswordHandler);
-                i.putExtra("title", newTitle.isEmpty() ? passwordTitle : newTitle); // Use new title if changed
-                this.startActivity(i);
-
+                handler.editPassword(passwordTitle, newTitle, newUser, newPass, (Context) this);
             } catch (Exception e) {
                 Toast.makeText(this, "ERROR: Failed to update password!", Toast.LENGTH_SHORT).show();
+                throw new RuntimeException(e);
             }
+
+            Intent i = new Intent(this, PasswordView.class);
+            i.putExtra("handler", (Serializable) handler);
+            i.putExtra("title", newTitle.isEmpty() ? passwordTitle : newTitle);
+            this.startActivity(i);
         });
     }
 }
