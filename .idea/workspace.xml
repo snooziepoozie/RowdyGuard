@@ -36,9 +36,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c62dc90e-4990-4ecb-9c3f-177d59dbc266" name="Changes" comment="Project reformat">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-    </list>
+    <list default="true" id="c62dc90e-4990-4ecb-9c3f-177d59dbc266" name="Changes" comment="Fixed spelling error in README-FUNCTIONALITY-.md" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -227,7 +225,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732999386896</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Moved functionality readme to root project directory">
+      <option name="closed" value="true" />
+      <created>1733001097880</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1733001097880</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Fixed spelling error in README-FUNCTIONALITY-.md">
+      <option name="closed" value="true" />
+      <created>1733001134403</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1733001134403</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -243,6 +257,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Project reformat" />
-    <option name="LAST_COMMIT_MESSAGE" value="Project reformat" />
+    <MESSAGE value="Moved functionality readme to root project directory" />
+    <MESSAGE value="Fixed spelling error in README-FUNCTIONALITY-.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed spelling error in README-FUNCTIONALITY-.md" />
   </component>
 </project>
