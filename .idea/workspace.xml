@@ -5,7 +5,27 @@
       <config />
     </shared>
     <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+        <config>
+          <theme>@style/Theme.AppCompat.Light</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/password_change.xml">
+        <config>
+          <theme>@style/Theme.AppCompat.Light</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/password_view.xml">
+        <config>
+          <theme>@style/Theme.AppCompat.Light</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/settings_view.xml">
+        <config>
+          <theme>@style/Theme.AppCompat.Light</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/vault_overview.xml">
         <config>
           <theme>@style/Theme.AppCompat.Light</theme>
         </config>
@@ -17,141 +37,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c62dc90e-4990-4ecb-9c3f-177d59dbc266" name="Changes" comment="Project reformat">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/migrations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/proguard-rules.pro" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/androidTest/java/edu/utsa/cs3443/rowdyguard/ExampleInstrumentedTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/edu/utsa/cs3443/rowdyguard/controllers/MainActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/edu/utsa/cs3443/rowdyguard/controllers/PasswordChange.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/edu/utsa/cs3443/rowdyguard/controllers/PasswordView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/edu/utsa/cs3443/rowdyguard/controllers/SettingsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/edu/utsa/cs3443/rowdyguard/controllers/VaultOverview.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/edu/utsa/cs3443/rowdyguard/model/Password.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/edu/utsa/cs3443/rowdyguard/model/Settings.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/edu/utsa/cs3443/rowdyguard/model/db/Encryption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/edu/utsa/cs3443/rowdyguard/model/db/Handler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/edu/utsa/cs3443/rowdyguard/ui/theme/Color.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/edu/utsa/cs3443/rowdyguard/ui/theme/Theme.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/edu/utsa/cs3443/rowdyguard/ui/theme/Type.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_foreground.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi/ic_launcher.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi/ic_launcher_round.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/xml/backup_rules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/xml/data_extraction_rules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/edu/utsa/cs3443/rowdyguard/ExampleUnitTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/RowdyGuard.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_23_24,_7_59 PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_23_24,_7_59 PM_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_23_24,_8_04 PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_23_24,_8_25 PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_23_24,_8_25 PM_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_23_24__7_59PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_23_24__7_59PM__Changes_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_23_24__8_04PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_23_24__8_25PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_23_24__8_25PM__Changes_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_24_24,_7_06 PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_24_24,_7_11 PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_24_24__7_06PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_24_24__7_11PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_26_24,_9_32 AM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_26_24__9_32AM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/build.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/proguard-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/androidTest/java/edu/utsa/cs3443/rowdyguard/ExampleInstrumentedTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/java/edu/utsa/cs3443/rowdyguard/controllers/MainActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/java/edu/utsa/cs3443/rowdyguard/controllers/PasswordChange.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/java/edu/utsa/cs3443/rowdyguard/controllers/PasswordView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/java/edu/utsa/cs3443/rowdyguard/controllers/SettingsController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/java/edu/utsa/cs3443/rowdyguard/controllers/VaultOverview.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/java/edu/utsa/cs3443/rowdyguard/model/Password.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/java/edu/utsa/cs3443/rowdyguard/model/Settings.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/java/edu/utsa/cs3443/rowdyguard/model/db/Encryption.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/java/edu/utsa/cs3443/rowdyguard/model/db/Handler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/java/edu/utsa/cs3443/rowdyguard/ui/theme/Color.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/java/edu/utsa/cs3443/rowdyguard/ui/theme/Theme.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/java/edu/utsa/cs3443/rowdyguard/ui/theme/Type.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/drawable/background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/drawable/error.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/drawable/ic_launcher_foreground.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/drawable/rounded_corner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/drawable/rowdylogo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/drawable/settingwheel.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/font/afacad.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/font/fira_code_light.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/layout/password_change.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/layout/password_view.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/layout/settings_view.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/layout/vault_overview.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/mipmap-anydpi/ic_launcher.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/mipmap-anydpi/ic_launcher_round.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/values/colors.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/values/font_certs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/values/preloaded_fonts.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/values/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/values/themes.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/xml/backup_rules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/app/src/test/java/edu/utsa/cs3443/rowdyguard/ExampleUnitTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/build.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/gradle/libs.versions.toml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/local.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RowdyGuard/settings.gradle.kts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,6 +52,44 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$/app">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="RowdyGuard" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="RowdyGuard" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="RowdyGuard" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="RowdyGuard" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="other" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -188,7 +112,7 @@
   }
 }</component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="_Designer_Tab" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -294,7 +218,27 @@
       <option name="presentableId" value="Default" />
       <updated>1732997234681</updated>
     </task>
+    <task id="LOCAL-00001" summary="Project reformat">
+      <option name="closed" value="true" />
+      <created>1732999386896</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1732999386896</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Project reformat" />
