@@ -18,9 +18,29 @@ import edu.utsa.cs3443.rowdyguard.R;
 import edu.utsa.cs3443.rowdyguard.model.Password;
 import edu.utsa.cs3443.rowdyguard.model.db.Handler;
 
+/**
+ * <h1>Viewing (Individual) Passwords</h1>
+ * The purpose of PasswordView.java is to enable users to view their (decrypted)
+ * password data (title, password, and username).
+ * Users are also able to change their password's data and delete them.
+ *
+ * @author  Danny Nguyen
+ * @since   11-04-2024
+ */
 
 public class PasswordView extends AppCompatActivity {
 
+    /**
+     * This method is used to initialize the Android app.
+     * There should be little interactivity with this view in general,
+     * but users can either alter their passwords (by clicking on the "settings" button,
+     * which brings them to the view, password_change_view), or delete them with the
+     * "delete" button.
+     * The exact details on how passwords are found in the model directory through
+     * Password.java, Handler.java, etc.
+     *
+     * @param savedInstanceState Helps initialize the activity for android.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,7 +104,7 @@ public class PasswordView extends AppCompatActivity {
                 handler.removePassword(titleToLookFor, (Context) this);
                 Toast.makeText(this, "Removed the password " + titleToLookFor, Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(this, VaultOverview.class);
-                i.putExtra("handler", handler); // Pass the handler
+                i.putExtra("handler", handler);  // Pass the handler
                 this.startActivity(i);
             } catch (Exception e) {
                 System.out.println("ERROR: Unable to remove the password " + titleToLookFor);

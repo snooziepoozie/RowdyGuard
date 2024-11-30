@@ -17,9 +17,21 @@ import edu.utsa.cs3443.rowdyguard.R;
 import edu.utsa.cs3443.rowdyguard.model.Password;
 import edu.utsa.cs3443.rowdyguard.model.db.Handler;
 
+/**
+ * The VaultOverview activity provides an overview of all stored passwords in a single place
+ *
+ * @author Jonathan Beierle
+ */
 
 public class VaultOverview extends AppCompatActivity {
 
+    /**
+     *
+     * @param savedInstanceState If the activity is being re-initialized after
+     *     previously being shut down then this Bundle contains the data it most
+     *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
+     *
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
@@ -44,10 +56,10 @@ public class VaultOverview extends AppCompatActivity {
             throw new RuntimeException(e);
         }
 
-        for (Password p: handler.getPasswords()) {
+        for (Password p: handler.getPasswords()) {  // Populate passwords in view
             Button button = new Button(context);
             button.setText(p.getTitle());
-            button.setOnClickListener(v -> {
+            button.setOnClickListener(v -> {  // add event listener to change views when clicked
                 Intent intent = new Intent(activity, PasswordView.class);
                 intent.putExtra("handler", handler);
                 intent.putExtra("title", p.getTitle());
@@ -57,9 +69,9 @@ public class VaultOverview extends AppCompatActivity {
             layout.addView(button);
         }
 
-        addButton.setOnClickListener(v -> {
+        addButton.setOnClickListener(v -> {  // Add a default password to the database and view
             try {
-                handler.addPassword("New Password", "username", "P@ssw0rd");
+                handler.addPassword("New Password", "username", "P@ssw0rd", this);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -73,7 +85,8 @@ public class VaultOverview extends AppCompatActivity {
             });
             layout.addView(button);
         });
-        settingsButton.setOnClickListener(view -> {
+
+        settingsButton.setOnClickListener(view -> {  // Navigate to the settings activity
             Intent intent = new Intent(activity, SettingsController.class);
             intent.putExtra("handler", handler);
             startActivity(intent);

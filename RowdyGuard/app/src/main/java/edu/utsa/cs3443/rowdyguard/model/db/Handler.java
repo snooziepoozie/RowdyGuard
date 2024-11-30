@@ -95,15 +95,15 @@ public class Handler implements Serializable {
         System.out.println("Loading database...");
         Scanner scanner = new Scanner(this.dbConnector);
         while (scanner.hasNextLine()) {
-            String[] arr = scanner.nextLine().split(",", 3);
+            String[] arr = scanner.nextLine().split(",", 3);  // split line by commas
             try {
-                String[] parts = arr[2].replace("[", "").replace("]", "").trim().split(",\\s*");
+                String[] parts = arr[2].replace("[", "").replace("]", "").trim().split(",\\s*");  // parse ciphertext
                 List<Byte> byteList = new ArrayList<>();
-                for (String part : parts) {
+                for (String part : parts) {  // build byte array
                     byteList.add(Byte.parseByte(part));
                 }
                 byte[] cipherText = new byte[byteList.size()];
-                for (int i = 0; i < byteList.size(); i++) {
+                for (int i = 0; i < byteList.size(); i++) {  // get cipher text from byte array
                     cipherText[i] = byteList.get(i);
                 }
 
@@ -133,7 +133,8 @@ public class Handler implements Serializable {
      * @param password The password object's actual password
      * @throws Exception Occurs if the password cannot be added to the database.=
      */
-    public void addPassword(String title, String username, String password) throws Exception {
+    public void addPassword(String title, String username, String password, Context context) throws Exception {
+        this.context = context;
         this.passwords.add(new Password(title, username, password));
         Writer output = new BufferedWriter(
                 new FileWriter(
@@ -142,7 +143,7 @@ public class Handler implements Serializable {
                 )
         );
         output.append(
-                title + "," + username + "," + Arrays.toString(encryptData(password, this.key)) + "\n"
+                title + "," + username + "," + Arrays.toString(encryptData(password, this.key)) + "\n"  // write data to database
         );
         output.close();
 
@@ -156,7 +157,7 @@ public class Handler implements Serializable {
      */
     public void removePassword(String title, Context context) throws Exception {
         this.context = context;
-        File tempFile = new File(context.getFilesDir(),"database.db.tmp");
+        File tempFile = new File(context.getFilesDir(),"database.db.tmp");  // create temp database
         tempFile.createNewFile();
 
         BufferedReader reader = new BufferedReader(new FileReader(this.dbConnector));
@@ -165,16 +166,16 @@ public class Handler implements Serializable {
 
         while((currentLine = reader.readLine()) != null) {
             String trimmedLine = currentLine.trim();
-            if(trimmedLine.startsWith(title)) continue;
-            writer.write(currentLine + System.lineSeparator());
+            if(trimmedLine.startsWith(title)) continue;  // skip the password to be deleted
+            writer.write(currentLine + System.lineSeparator());  // write password to temp database
         }
         writer.close();
         reader.close();
 
-        if (tempFile.renameTo(this.dbConnector)) {
+        if (tempFile.renameTo(this.dbConnector)) {  // convert temp database to actual database
             for (Password p: this.passwords) {
                 System.out.println(title + p.getTitle());
-                if (p.getTitle().equals(title)) {
+                if (p.getTitle().equals(title)) {  // if database was successfully renamed, remove old password
                     this.passwords.remove(p);
                     System.out.println("Removed '" + title + "' from database!");
                     return;
@@ -195,12 +196,13 @@ public class Handler implements Serializable {
     public void editPassword(String oldTitle, String newTitle, String newUserName, String newPassword, Context context) throws Exception {
         this.context = context;
         for (Password p : this.passwords) {
-            if (p.getTitle().equals(oldTitle)) {
+            if (p.getTitle().equals(oldTitle)) {  // found password with correct title to edit
                 this.removePassword(oldTitle, context);
                 this.addPassword(
-                    !newTitle.isEmpty() ? newTitle : p.getTitle(),
-                    !newUserName.isEmpty() ? newUserName : p.getUsername(),
-                    !newPassword.isEmpty() ? newPassword : p.getPassword()
+                    !newTitle.isEmpty() ? newTitle : p.getTitle(),  // change title if necessary
+                    !newUserName.isEmpty() ? newUserName : p.getUsername(),  // change username if necessary
+                    !newPassword.isEmpty() ? newPassword : p.getPassword(),  // change password if necessary
+                    context
                 );
                 return;
             }
@@ -214,23 +216,25 @@ public class Handler implements Serializable {
      */
     public void changeVaultPassword(String newPassword, Context context) throws Exception {
         Context oldContext = this.context;
-        this.context = context;
         SecretKey oldKey = this.key;
-        this.key = deriveKeyFromPassword(newPassword, new byte[12]);
         ArrayList<Password> passwordBackup = new ArrayList<>(this.getPasswords());
 
+        this.context = context;
+        this.key = deriveKeyFromPassword(newPassword, new byte[12]);
+
         try {
-            for (Password p : this.passwords) {
+            for (Password p : this.passwords) {  // remove all passwords from database
                 this.removePassword(p.getTitle(), context);
             }
-            for (Password p : passwordBackup) {
-                this.addPassword(p.getTitle(), p.getUsername(), p.getPassword());
+            for (Password p : passwordBackup) {  // add password back to database with new encryption
+                this.addPassword(p.getTitle(), p.getUsername(), p.getPassword(), context);
             }
         } catch (Exception ignored) {
             this.context = oldContext;
             this.key = oldKey;
             System.out.println("FAILED TO CHANGED VAULT PASSWORD");
-            return;
+            System.out.println(ignored);
+            throw ignored;
         }
         this.password = newPassword;
         System.out.println("CHANGED VAULT PASSWORD");

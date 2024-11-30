@@ -18,9 +18,29 @@ import java.io.Serializable;
 import edu.utsa.cs3443.rowdyguard.R;
 import edu.utsa.cs3443.rowdyguard.model.db.Handler;
 
+/**
+ * <h1>Changing (Individual) Passwords</h1>
+ * The purpose of PasswordChange.java is to change an individual password.
+ * The view for this activity can be accessed by clicking on the "settings" button from the
+ * previous view, "password_view."
+ *
+ * @author  Danny Nguyen
+ * @since   11-04-2024
+ */
 
 public class PasswordChange extends AppCompatActivity {
 
+    /**
+     * This method is used to initialize the Android app.
+     * To update the password, users must input a new field on the textboxes,
+     * which updates their respective variables.
+     * Users must press the "submit" button on the bottom of the view to submit their changes,
+     * (known as submitButton, here.)
+     * The exact details on how passwords are edited in the model directory through
+     * Password.java, Handler.java, etc.
+     *
+     * @param savedInstanceState Helps initialize the activity for android.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

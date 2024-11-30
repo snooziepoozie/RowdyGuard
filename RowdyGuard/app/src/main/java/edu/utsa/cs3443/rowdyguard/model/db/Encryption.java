@@ -8,7 +8,7 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.GCMParameterSpec;
 
 /**
- * Basic module for handling encryption and decryption
+ * Basic module for handling encryption and decryption operations
  * @author Jonathan Beierle
  */
 
