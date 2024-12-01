@@ -16,7 +16,15 @@ import edu.utsa.cs3443.rowdyguard.R;
 import edu.utsa.cs3443.rowdyguard.model.Settings;
 import edu.utsa.cs3443.rowdyguard.model.db.Handler;
 
+/**
+ * The SeetingsController class manages UI for app settings.
+ * This includes toggling the theme, changing the user's vault password, and handling logout functionality.
+ * Author: Jeronimo Gonzalez
+ */
 public class SettingsController extends AppCompatActivity {
+    /**
+     * Initializes the settings and handler.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +54,7 @@ public class SettingsController extends AppCompatActivity {
             Toast.makeText(this, "Dark theme: " + (settings.isDarkThemeEnabled() ? "Enabled" : "Disabled"), Toast.LENGTH_SHORT).show();
         });
 
+        //Password Change
         changePasswordButton.setOnClickListener(v -> {
             String newPassword = passwordInput.getText().toString().trim();
             if (!newPassword.isEmpty()) {
@@ -61,6 +70,7 @@ public class SettingsController extends AppCompatActivity {
             }
         });
 
+        //Logout function
         logoutTextView.setOnClickListener(v -> {
             settings.logout();
             Intent intent = new Intent(this, MainActivity.class);
