@@ -223,9 +223,10 @@ public class Handler implements Serializable {
         this.key = deriveKeyFromPassword(newPassword, new byte[12]);
 
         try {
-            for (Password p : this.passwords) {  // remove all passwords from database
+            for (Password p : passwordBackup) {  // remove all passwords from database
                 this.removePassword(p.getTitle(), context);
             }
+            System.out.println("Removed passwords!");
             for (Password p : passwordBackup) {  // add password back to database with new encryption
                 this.addPassword(p.getTitle(), p.getUsername(), p.getPassword(), context);
             }
