@@ -20,7 +20,7 @@ import edu.utsa.cs3443.rowdyguard.model.db.Handler;
 /**
  * The VaultOverview activity provides an overview of all stored passwords in a single place
  *
- * @author Jonathan Beierle
+ * @author Jonathan Beierle & Autumn Sexton
  */
 
 public class VaultOverview extends AppCompatActivity {
