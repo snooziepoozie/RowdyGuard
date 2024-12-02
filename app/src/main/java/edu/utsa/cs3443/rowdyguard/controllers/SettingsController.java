@@ -17,7 +17,7 @@ import edu.utsa.cs3443.rowdyguard.model.Settings;
 import edu.utsa.cs3443.rowdyguard.model.db.Handler;
 
 /**
- * The SeetingsController class manages UI for app settings.
+ * The SettingsController class manages UI for app settings.
  * This includes toggling the theme, changing the user's vault password, and handling logout functionality.
  * Author: Jeronimo Gonzalez
  */
