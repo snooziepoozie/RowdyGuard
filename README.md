@@ -50,3 +50,5 @@ Once the application is successfully cloned and your android device or emulator 
 <img width="560" alt="image" src="https://github.com/user-attachments/assets/e1e1eb22-d115-4eb0-9e78-bc221799379e">
 
 Once the application finishes loading, use your login credentials to view your password manager!
+
+Note: for first time users the password for the login will be "**P@ssw0rd**". The user should navigate to settings to change the password after installation.
